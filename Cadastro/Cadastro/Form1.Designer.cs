@@ -49,16 +49,16 @@
             this.txtNumero = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtOBS = new System.Windows.Forms.TextBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.opM = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.opO = new System.Windows.Forms.RadioButton();
+            this.ckeckAtivo = new System.Windows.Forms.CheckBox();
             this.txtDoc = new System.Windows.Forms.MaskedTextBox();
             this.txtNasc = new System.Windows.Forms.MaskedTextBox();
             this.txtCep = new System.Windows.Forms.MaskedTextBox();
             this.txtFone = new System.Windows.Forms.MaskedTextBox();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.OpCpf = new System.Windows.Forms.RadioButton();
+            this.Opcnpj = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -66,14 +66,14 @@
             this.cbEstado_civil = new System.Windows.Forms.ComboBox();
             this.cbEndereco = new System.Windows.Forms.ComboBox();
             this.cbCidade = new System.Windows.Forms.ComboBox();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
+            this.opF = new System.Windows.Forms.RadioButton();
             this.cbBairro = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btSalvar = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -303,17 +303,17 @@
             this.txtOBS.Size = new System.Drawing.Size(956, 69);
             this.txtOBS.TabIndex = 15;
             // 
-            // radioButton1
+            // opM
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.BackColor = System.Drawing.Color.Transparent;
-            this.radioButton1.Location = new System.Drawing.Point(6, 26);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(106, 24);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Masculino";
-            this.radioButton1.UseVisualStyleBackColor = false;
+            this.opM.AutoSize = true;
+            this.opM.BackColor = System.Drawing.Color.Transparent;
+            this.opM.Location = new System.Drawing.Point(6, 26);
+            this.opM.Name = "opM";
+            this.opM.Size = new System.Drawing.Size(106, 24);
+            this.opM.TabIndex = 0;
+            this.opM.TabStop = true;
+            this.opM.Text = "Masculino";
+            this.opM.UseVisualStyleBackColor = false;
             // 
             // radioButton2
             // 
@@ -326,29 +326,29 @@
             this.radioButton2.Text = "Feminino";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // opO
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(374, 26);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(81, 24);
-            this.radioButton3.TabIndex = 4;
-            this.radioButton3.Text = "Outros";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.opO.AutoSize = true;
+            this.opO.Location = new System.Drawing.Point(374, 26);
+            this.opO.Name = "opO";
+            this.opO.Size = new System.Drawing.Size(81, 24);
+            this.opO.TabIndex = 4;
+            this.opO.Text = "Outros";
+            this.opO.UseVisualStyleBackColor = true;
             // 
-            // checkBox4
+            // ckeckAtivo
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox4.Checked = true;
-            this.checkBox4.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox4.Location = new System.Drawing.Point(168, 643);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(68, 24);
-            this.checkBox4.TabIndex = 16;
-            this.checkBox4.TabStop = false;
-            this.checkBox4.Text = "Ativo";
-            this.checkBox4.UseVisualStyleBackColor = false;
+            this.ckeckAtivo.AutoSize = true;
+            this.ckeckAtivo.BackColor = System.Drawing.Color.Transparent;
+            this.ckeckAtivo.Checked = true;
+            this.ckeckAtivo.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ckeckAtivo.Location = new System.Drawing.Point(168, 643);
+            this.ckeckAtivo.Name = "ckeckAtivo";
+            this.ckeckAtivo.Size = new System.Drawing.Size(68, 24);
+            this.ckeckAtivo.TabIndex = 16;
+            this.ckeckAtivo.TabStop = false;
+            this.ckeckAtivo.Text = "Ativo";
+            this.ckeckAtivo.UseVisualStyleBackColor = false;
             // 
             // txtDoc
             // 
@@ -391,35 +391,35 @@
             this.txtFone.Size = new System.Drawing.Size(142, 27);
             this.txtFone.TabIndex = 13;
             // 
-            // radioButton4
+            // OpCpf
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.BackColor = System.Drawing.Color.Transparent;
-            this.radioButton4.Location = new System.Drawing.Point(6, 11);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(63, 24);
-            this.radioButton4.TabIndex = 0;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "CPF";
-            this.radioButton4.UseVisualStyleBackColor = false;
+            this.OpCpf.AutoSize = true;
+            this.OpCpf.BackColor = System.Drawing.Color.Transparent;
+            this.OpCpf.Location = new System.Drawing.Point(6, 11);
+            this.OpCpf.Name = "OpCpf";
+            this.OpCpf.Size = new System.Drawing.Size(63, 24);
+            this.OpCpf.TabIndex = 0;
+            this.OpCpf.TabStop = true;
+            this.OpCpf.Text = "CPF";
+            this.OpCpf.UseVisualStyleBackColor = false;
             // 
-            // radioButton5
+            // Opcnpj
             // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.BackColor = System.Drawing.Color.Transparent;
-            this.radioButton5.Location = new System.Drawing.Point(72, 11);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(74, 24);
-            this.radioButton5.TabIndex = 2;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "CNPJ";
-            this.radioButton5.UseVisualStyleBackColor = false;
+            this.Opcnpj.AutoSize = true;
+            this.Opcnpj.BackColor = System.Drawing.Color.Transparent;
+            this.Opcnpj.Location = new System.Drawing.Point(72, 11);
+            this.Opcnpj.Name = "Opcnpj";
+            this.Opcnpj.Size = new System.Drawing.Size(74, 24);
+            this.Opcnpj.TabIndex = 2;
+            this.Opcnpj.TabStop = true;
+            this.Opcnpj.Text = "CNPJ";
+            this.Opcnpj.UseVisualStyleBackColor = false;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.radioButton1);
+            this.groupBox1.Controls.Add(this.opM);
             this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton3);
+            this.groupBox1.Controls.Add(this.opO);
             this.groupBox1.ForeColor = System.Drawing.Color.SteelBlue;
             this.groupBox1.Location = new System.Drawing.Point(586, 101);
             this.groupBox1.Name = "groupBox1";
@@ -430,8 +430,8 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.radioButton4);
-            this.groupBox2.Controls.Add(this.radioButton5);
+            this.groupBox2.Controls.Add(this.OpCpf);
+            this.groupBox2.Controls.Add(this.Opcnpj);
             this.groupBox2.Location = new System.Drawing.Point(304, 101);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(152, 70);
@@ -537,15 +537,15 @@
             this.cbCidade.Size = new System.Drawing.Size(687, 28);
             this.cbCidade.TabIndex = 11;
             // 
-            // radioButton6
+            // opF
             // 
-            this.radioButton6.AutoSize = true;
-            this.radioButton6.Location = new System.Drawing.Point(782, 127);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(98, 24);
-            this.radioButton6.TabIndex = 3;
-            this.radioButton6.Text = "Feminino";
-            this.radioButton6.UseVisualStyleBackColor = true;
+            this.opF.AutoSize = true;
+            this.opF.Location = new System.Drawing.Point(782, 127);
+            this.opF.Name = "opF";
+            this.opF.Size = new System.Drawing.Size(98, 24);
+            this.opF.TabIndex = 3;
+            this.opF.Text = "Feminino";
+            this.opF.UseVisualStyleBackColor = true;
             // 
             // cbBairro
             // 
@@ -626,21 +626,21 @@
             this.button4.Text = "Novo";
             this.button4.UseVisualStyleBackColor = false;
             // 
-            // button5
+            // btSalvar
             // 
-            this.button5.BackColor = System.Drawing.Color.Coral;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.ForeColor = System.Drawing.Color.Azure;
-            this.button5.Location = new System.Drawing.Point(889, 701);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(164, 36);
-            this.button5.TabIndex = 19;
-            this.button5.Text = "Salvar";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.btSalvar.BackColor = System.Drawing.Color.Coral;
+            this.btSalvar.FlatAppearance.BorderSize = 0;
+            this.btSalvar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btSalvar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.btSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btSalvar.ForeColor = System.Drawing.Color.Azure;
+            this.btSalvar.Location = new System.Drawing.Point(889, 701);
+            this.btSalvar.Name = "btSalvar";
+            this.btSalvar.Size = new System.Drawing.Size(164, 36);
+            this.btSalvar.TabIndex = 19;
+            this.btSalvar.Text = "Salvar";
+            this.btSalvar.UseVisualStyleBackColor = false;
+            this.btSalvar.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
@@ -660,13 +660,13 @@
             this.ClientSize = new System.Drawing.Size(1159, 761);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.btSalvar);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.cbCidade);
-            this.Controls.Add(this.radioButton6);
+            this.Controls.Add(this.opF);
             this.Controls.Add(this.cbBairro);
             this.Controls.Add(this.cbEndereco);
             this.Controls.Add(this.cbEstado_civil);
@@ -676,7 +676,7 @@
             this.Controls.Add(this.txtCep);
             this.Controls.Add(this.txtNasc);
             this.Controls.Add(this.txtDoc);
-            this.Controls.Add(this.checkBox4);
+            this.Controls.Add(this.ckeckAtivo);
             this.Controls.Add(this.txtOBS);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtNumero);
@@ -739,16 +739,16 @@
         private System.Windows.Forms.TextBox txtNumero;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtOBS;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton opM;
         private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.RadioButton opO;
+        private System.Windows.Forms.CheckBox ckeckAtivo;
         private System.Windows.Forms.MaskedTextBox txtDoc;
         private System.Windows.Forms.MaskedTextBox txtNasc;
         private System.Windows.Forms.MaskedTextBox txtCep;
         private System.Windows.Forms.MaskedTextBox txtFone;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton5;
+        private System.Windows.Forms.RadioButton OpCpf;
+        private System.Windows.Forms.RadioButton Opcnpj;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label1;
@@ -756,14 +756,14 @@
         private System.Windows.Forms.ComboBox cbEstado_civil;
         private System.Windows.Forms.ComboBox cbEndereco;
         private System.Windows.Forms.ComboBox cbCidade;
-        private System.Windows.Forms.RadioButton radioButton6;
+        private System.Windows.Forms.RadioButton opF;
         private System.Windows.Forms.ComboBox cbBairro;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btSalvar;
         private System.Windows.Forms.Button button6;
     }
 }

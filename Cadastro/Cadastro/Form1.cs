@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Globalization;
 using System.Linq;
+using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -58,11 +61,11 @@ namespace Cadastro
 
             }
         }
-        private void SalvarNoMysql()
+        private void SalvarClienteMysql()
         {
             using (MySqlConnection Conexao = new MySqlConnection("Server=127.0.0.1;Port=3306;Database=base_clienteS;User=root;Password="))
             {
-
+             
 
                 Conexao.Open();
 
@@ -71,7 +74,22 @@ namespace Cadastro
                     cmd.CommandText = "INSERT INTO clientes(nome,documento,genero,rg,estado_civil,nasc,cep,endereco,numero,bairro,estado,celular,email,obs,situacao)   VALUES (@nome,@documento,@genero,@rg,@estado_civil,@nasc,@cep,@endereco,@numero,@bairro,@estado,@celular,@email,@obs,@situacao)";
                     cmd.Parameters.AddWithValue("@nome", txtNome.Text);
                     cmd.Parameters.AddWithValue("@documento", txtDoc.Text);
-                    cmd.Parameters.AddWithValue("@genero", "Masculino");
+
+                    if (opM.Checked == true)
+                    {
+                        cmd.Parameters.AddWithValue("@genero", "Masculino");
+                    }
+                    else if (opF.Checked == true) 
+                    {
+                            cmd.Parameters.AddWithValue("@genero", "Feminino");
+
+                        }
+                        else
+                        {
+
+                        cmd.Parameters.AddWithValue("@genero", "Outros");
+                    }
+                    
                     cmd.Parameters.AddWithValue("@rg", txtRG.Text);
                     cmd.Parameters.AddWithValue("@estado_civil", cbEstado_civil.Text);
 
@@ -88,7 +106,16 @@ namespace Cadastro
                     cmd.Parameters.AddWithValue("@celular", txtFone.Text);
                     cmd.Parameters.AddWithValue("@email", txtEmail.Text);
                     cmd.Parameters.AddWithValue("@obs", txtOBS.Text);
-                    cmd.Parameters.AddWithValue("@situacao", "Ativo");
+
+                    if (ckeckAtivo.Checked == true)
+                    {
+                        cmd.Parameters.AddWithValue("@situacao", "Ativo");
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@situacao", "Cancelado");
+                    }
+                   
 
 
                     cmd.ExecuteNonQuery();
@@ -100,9 +127,60 @@ namespace Cadastro
 
         }
 
+
+
+
+        private bool Validacoes()
+
+        {
+            if (txtNome.Text == "")
+            {
+                MessageBox.Show("PREECHA  Campo   NOME obrigatorio");
+                txtNome.Focus();
+                return true;
+            }
+
+            //VALIDAR SE MARCOU CPF
+            if (OpCpf.Checked == false && Opcnpj.Checked == false)
+            {
+
+                MessageBox.Show("Marque um tipo de documentacao\rCpf ou CNPJ ");
+      
+                return true;
+            }
+            if (txtDoc.Text == "")
+            {
+                MessageBox.Show("campo de dcumento e obrigatorio   ");
+                txtDoc.Focus();
+                return true;
+            }
+
+            // verifica  se pelo menos marcou alguma opcao de genero
+
+            if (opM.Checked == false && opF.Checked == false && opO.Checked == false)
+            {
+                MessageBox.Show("Selecione o Genero que vc desejar");
+                return true;   
+            }
+
+            return false;   
+        }
+
         private void button5_Click(object sender, EventArgs e)
         {
-            SalvarNoMysql();
+
+            if (Validacoes() == true) { 
+            return;
+            }
+        
+            SalvarClienteMysql();
+          
         }
+
+
+    
+
     }
+
 }
+
