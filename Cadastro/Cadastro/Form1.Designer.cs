@@ -43,7 +43,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtId = new System.Windows.Forms.TextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.txtRG = new System.Windows.Forms.TextBox();
             this.txtNumero = new System.Windows.Forms.TextBox();
@@ -74,7 +74,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.btSalvar = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -248,14 +247,14 @@
             this.label18.TabIndex = 0;
             this.label18.Text = "Situacao";
             // 
-            // textBox1
+            // txtId
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox1.ForeColor = System.Drawing.Color.CadetBlue;
-            this.textBox1.Location = new System.Drawing.Point(304, 68);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(152, 27);
-            this.textBox1.TabIndex = 1;
+            this.txtId.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtId.ForeColor = System.Drawing.Color.CadetBlue;
+            this.txtId.Location = new System.Drawing.Point(304, 68);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(152, 27);
+            this.txtId.TabIndex = 1;
             // 
             // txtNome
             // 
@@ -625,6 +624,7 @@
             this.button4.TabStop = false;
             this.button4.Text = "Novo";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // btSalvar
             // 
@@ -642,23 +642,12 @@
             this.btSalvar.UseVisualStyleBackColor = false;
             this.btSalvar.Click += new System.EventHandler(this.button5_Click);
             // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(659, 666);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(109, 53);
-            this.button6.TabIndex = 20;
-            this.button6.Text = "button6";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
             // FrmCadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FloralWhite;
             this.ClientSize = new System.Drawing.Size(1159, 761);
-            this.Controls.Add(this.button6);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btSalvar);
             this.Controls.Add(this.button4);
@@ -681,7 +670,7 @@
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtNumero);
             this.Controls.Add(this.txtRG);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtId);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label17);
@@ -708,6 +697,7 @@
             this.Name = "FrmCadastro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.FrmCadastro_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -733,7 +723,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.TextBox txtRG;
         private System.Windows.Forms.TextBox txtNumero;
@@ -764,7 +754,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button btSalvar;
-        private System.Windows.Forms.Button button6;
     }
 }
 
