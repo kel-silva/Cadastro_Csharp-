@@ -74,6 +74,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.btSalvar = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -538,6 +539,8 @@
             this.cbEndereco.Name = "cbEndereco";
             this.cbEndereco.Size = new System.Drawing.Size(563, 28);
             this.cbEndereco.TabIndex = 8;
+            this.cbEndereco.SelectedIndexChanged += new System.EventHandler(this.cbEndereco_SelectedIndexChanged);
+            this.cbEndereco.TextChanged += new System.EventHandler(this.cbEndereco_TextChanged);
             // 
             // cbCidade
             // 
@@ -550,6 +553,7 @@
             this.cbCidade.Name = "cbCidade";
             this.cbCidade.Size = new System.Drawing.Size(687, 28);
             this.cbCidade.TabIndex = 11;
+            this.cbCidade.TextChanged += new System.EventHandler(this.cbCidade_TextChanged);
             // 
             // opF
             // 
@@ -573,6 +577,7 @@
             this.cbBairro.Name = "cbBairro";
             this.cbBairro.Size = new System.Drawing.Size(252, 28);
             this.cbBairro.TabIndex = 10;
+            this.cbBairro.TextChanged += new System.EventHandler(this.cbBairro_TextChanged);
             // 
             // pictureBox1
             // 
@@ -658,12 +663,23 @@
             this.btSalvar.UseVisualStyleBackColor = false;
             this.btSalvar.Click += new System.EventHandler(this.button5_Click);
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(496, 13);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 20;
+            this.button5.Text = "button5";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click_1);
+            // 
             // FrmCadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FloralWhite;
             this.ClientSize = new System.Drawing.Size(1159, 761);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btSalvar);
             this.Controls.Add(this.button4);
@@ -770,6 +786,7 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button btSalvar;
+        private System.Windows.Forms.Button button5;
     }
 }
 

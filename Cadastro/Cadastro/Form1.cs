@@ -143,7 +143,7 @@ namespace Cadastro
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Data de nascimento nao e valida");
+                   Funcoes.MsgError("Data de nascimento nao e valida");
                     return true;
 
                 }
@@ -168,8 +168,12 @@ namespace Cadastro
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Deseja de fato Limpar todos os campos ", "Crm Clientes", MessageBoxButtons.YesNo) == DialogResult.No)
+            if (Funcoes.Pergunta("Deseja de fato limpar todos os campos ") == false)
                 return;
+            
+            
+            
+            
             txtId.Text = "";
             txtNome.Text = "";
             OpCpf.Checked = false;
@@ -305,9 +309,8 @@ namespace Cadastro
 
         private void txtNome_TextChanged(object sender, EventArgs e)
         {
-            TextInfo TextInfo = new CultureInfo("pt-BR", false).TextInfo;
-            txtNome.Text = TextInfo.ToTitleCase(txtNome.Text);
-            txtNome.SelectionStart = txtNome.TextLength;
+            Funcoes.priMaiuscula(txtNome);
+
         }
 
         private void txtCep_Validating(object sender, CancelEventArgs e)
@@ -353,6 +356,32 @@ namespace Cadastro
         private void txtCep_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
+        }
+
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+            Funcoes.MsgError("Texto da Messagem");
+        }
+
+        private void cbEndereco_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbEndereco_TextChanged(object sender, EventArgs e)
+        {
+            Funcoes.priMaiuscula(cbEndereco);
+
+        }
+
+        private void cbBairro_TextChanged(object sender, EventArgs e)
+        {
+            Funcoes.priMaiuscula(cbBairro);
+        }
+
+        private void cbCidade_TextChanged(object sender, EventArgs e)
+        {
+            Funcoes.priMaiuscula(cbCidade); 
         }
     }
 
