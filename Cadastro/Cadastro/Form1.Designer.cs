@@ -264,6 +264,7 @@
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(454, 27);
             this.txtNome.TabIndex = 0;
+            this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
             // 
             // txtRG
             // 
@@ -313,6 +314,7 @@
             this.opM.TabStop = true;
             this.opM.Text = "Masculino";
             this.opM.UseVisualStyleBackColor = false;
+            this.opM.CheckedChanged += new System.EventHandler(this.opM_CheckedChanged);
             // 
             // radioButton2
             // 
@@ -334,6 +336,7 @@
             this.opO.TabIndex = 4;
             this.opO.Text = "Outros";
             this.opO.UseVisualStyleBackColor = true;
+            this.opO.CheckedChanged += new System.EventHandler(this.opO_CheckedChanged);
             // 
             // ckeckAtivo
             // 
@@ -352,13 +355,15 @@
             // txtDoc
             // 
             this.txtDoc.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtDoc.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.txtDoc.ForeColor = System.Drawing.Color.CadetBlue;
             this.txtDoc.Location = new System.Drawing.Point(304, 153);
-            this.txtDoc.Mask = "000,000,000-00";
             this.txtDoc.Name = "txtDoc";
             this.txtDoc.Size = new System.Drawing.Size(152, 27);
             this.txtDoc.TabIndex = 2;
             this.txtDoc.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.txtDoc.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txtDoc_MaskInputRejected);
+            this.txtDoc.Validating += new System.ComponentModel.CancelEventHandler(this.txtDoc_Validating);
             // 
             // txtNasc
             // 
@@ -369,6 +374,8 @@
             this.txtNasc.Name = "txtNasc";
             this.txtNasc.Size = new System.Drawing.Size(152, 27);
             this.txtNasc.TabIndex = 6;
+            this.txtNasc.Validating += new System.ComponentModel.CancelEventHandler(this.txtNasc_Validating);
+            this.txtNasc.Validated += new System.EventHandler(this.txtNasc_Validated);
             // 
             // txtCep
             // 
@@ -379,6 +386,9 @@
             this.txtCep.Name = "txtCep";
             this.txtCep.Size = new System.Drawing.Size(252, 27);
             this.txtCep.TabIndex = 7;
+            this.txtCep.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.txtCep.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txtCep_MaskInputRejected);
+            this.txtCep.Validating += new System.ComponentModel.CancelEventHandler(this.txtCep_Validating);
             // 
             // txtFone
             // 
@@ -401,6 +411,7 @@
             this.OpCpf.TabStop = true;
             this.OpCpf.Text = "CPF";
             this.OpCpf.UseVisualStyleBackColor = false;
+            this.OpCpf.CheckedChanged += new System.EventHandler(this.OpCpf_CheckedChanged);
             // 
             // Opcnpj
             // 
@@ -413,6 +424,7 @@
             this.Opcnpj.TabStop = true;
             this.Opcnpj.Text = "CNPJ";
             this.Opcnpj.UseVisualStyleBackColor = false;
+            this.Opcnpj.CheckedChanged += new System.EventHandler(this.Opcnpj_CheckedChanged);
             // 
             // groupBox1
             // 
@@ -426,6 +438,7 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Genero";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // groupBox2
             // 
@@ -493,6 +506,7 @@
             this.cbEstado.Name = "cbEstado";
             this.cbEstado.Size = new System.Drawing.Size(295, 28);
             this.cbEstado.TabIndex = 12;
+            this.cbEstado.Validating += new System.ComponentModel.CancelEventHandler(this.cbEstado_Validating);
             // 
             // cbEstado_civil
             // 
@@ -511,6 +525,7 @@
             this.cbEstado_civil.Name = "cbEstado_civil";
             this.cbEstado_civil.Size = new System.Drawing.Size(255, 28);
             this.cbEstado_civil.TabIndex = 5;
+            this.cbEstado_civil.Validating += new System.ComponentModel.CancelEventHandler(this.cbEstado_civil_Validating);
             // 
             // cbEndereco
             // 
@@ -545,6 +560,7 @@
             this.opF.TabIndex = 3;
             this.opF.Text = "Feminino";
             this.opF.UseVisualStyleBackColor = true;
+            this.opF.CheckedChanged += new System.EventHandler(this.opF_CheckedChanged);
             // 
             // cbBairro
             // 

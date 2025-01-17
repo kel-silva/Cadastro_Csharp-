@@ -211,6 +211,149 @@ namespace Cadastro
         {
 
         }
+
+        private void OpCpf_CheckedChanged(object sender, EventArgs e)
+        {
+            if (OpCpf.Checked == true)
+            {
+
+                txtDoc.Mask = "0000,000,00-00";
+                txtDoc.Focus();
+
+
+            }
+        }
+
+        private void Opcnpj_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Opcnpj.Checked == true)
+            {
+                txtDoc.Mask = "00,000,000/0000-00";
+                txtDoc.Focus();
+            }
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void opM_CheckedChanged(object sender, EventArgs e)
+        {
+            txtRG.Focus();  
+        }
+
+        private void opF_CheckedChanged(object sender, EventArgs e)
+        {
+            txtRG.Focus();
+        }
+
+        private void opO_CheckedChanged(object sender, EventArgs e)
+        {
+            txtRG.Focus();
+        }
+
+        private void txtNasc_Validated(object sender, EventArgs e)
+        {
+          
+
+            }
+
+        private void txtNasc_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtNasc.Text == "  /  /")
+                return;
+
+            try
+            {
+                txtNasc.Text = Convert.ToDateTime(txtNasc.Text).ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("DAta invalida por favor escreva uma da ta valida");
+                e.Cancel = true;
+
+            }
+        }
+
+        private void cbEstado_civil_Validating(object sender, CancelEventArgs e)
+        {
+            if (cbEstado_civil.Text == "") ;
+            return;
+
+
+            if (cbEstado_civil.SelectedIndex == -1)
+            {
+                MessageBox.Show("Selecione o intem da lista");
+                e.Cancel=true;  
+            }
+
+        }
+
+        private void cbEstado_Validating(object sender, CancelEventArgs e)
+        {
+            if (cbEstado.Text == "") ;
+            return;
+
+
+            if (cbEstado.SelectedIndex == -1)
+            {
+                MessageBox.Show("Selecione o intem da lista");
+                e.Cancel = true;
+            }
+        }
+
+        private void txtNome_TextChanged(object sender, EventArgs e)
+        {
+            TextInfo TextInfo = new CultureInfo("pt-BR", false).TextInfo;
+            txtNome.Text = TextInfo.ToTitleCase(txtNome.Text);
+            txtNome.SelectionStart = txtNome.TextLength;
+        }
+
+        private void txtCep_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtCep.Text.Length == 0)
+                return;
+
+            if (txtCep.Text.Length < 8)
+            {
+                MessageBox.Show("Informacao imcompleta DO CEP");
+                e.Cancel = true;
+            }
+        }
+
+        private void txtDoc_Validating(object sender, CancelEventArgs e)
+        {
+
+            if (txtDoc.Text == "")
+                return;
+            
+            
+            
+            if (OpCpf.Checked == true && txtDoc.Text.Replace(" ", "").Length < 11 )
+            {
+
+                MessageBox.Show("Informacao imcompleta do cpf");
+                e.Cancel = true;
+            }
+
+            if (Opcnpj.Checked == true && txtDoc.Text.Replace(" ", "").Length < 14)
+            {
+
+                MessageBox.Show("Informacao imcompleta do cnpj");
+                e.Cancel = true;
+            }
+        }
+
+        private void txtDoc_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void txtCep_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
     }
 
 
