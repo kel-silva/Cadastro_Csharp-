@@ -68,16 +68,16 @@
             this.cbCidade = new System.Windows.Forms.ComboBox();
             this.opF = new System.Windows.Forms.RadioButton();
             this.cbBairro = new System.Windows.Forms.ComboBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.imgCliente = new System.Windows.Forms.PictureBox();
+            this.btAddFoto = new System.Windows.Forms.Button();
+            this.btRemoverFoto = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.btSalvar = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgCliente)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
@@ -579,40 +579,42 @@
             this.cbBairro.TabIndex = 10;
             this.cbBairro.TextChanged += new System.EventHandler(this.cbBairro_TextChanged);
             // 
-            // pictureBox1
+            // imgCliente
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(85, 43);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(208, 175);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 12;
-            this.pictureBox1.TabStop = false;
+            this.imgCliente.Image = global::Cadastro.Properties.Resources.businessman_icon_260nw_564112600;
+            this.imgCliente.Location = new System.Drawing.Point(85, 43);
+            this.imgCliente.Name = "imgCliente";
+            this.imgCliente.Size = new System.Drawing.Size(208, 175);
+            this.imgCliente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgCliente.TabIndex = 12;
+            this.imgCliente.TabStop = false;
             // 
-            // button1
+            // btAddFoto
             // 
-            this.button1.BackColor = System.Drawing.Color.LightSalmon;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(85, 221);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(164, 36);
-            this.button1.TabIndex = 13;
-            this.button1.TabStop = false;
-            this.button1.Text = "Imagem";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btAddFoto.BackColor = System.Drawing.Color.LightSalmon;
+            this.btAddFoto.FlatAppearance.BorderSize = 0;
+            this.btAddFoto.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btAddFoto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.btAddFoto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btAddFoto.Location = new System.Drawing.Point(85, 221);
+            this.btAddFoto.Name = "btAddFoto";
+            this.btAddFoto.Size = new System.Drawing.Size(164, 36);
+            this.btAddFoto.TabIndex = 13;
+            this.btAddFoto.TabStop = false;
+            this.btAddFoto.Text = "Imagem";
+            this.btAddFoto.UseVisualStyleBackColor = false;
+            this.btAddFoto.Click += new System.EventHandler(this.btAddFoto_Click);
             // 
-            // button2
+            // btRemoverFoto
             // 
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(255, 221);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(38, 36);
-            this.button2.TabIndex = 13;
-            this.button2.TabStop = false;
-            this.button2.UseVisualStyleBackColor = true;
+            this.btRemoverFoto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btRemoverFoto.Location = new System.Drawing.Point(255, 221);
+            this.btRemoverFoto.Name = "btRemoverFoto";
+            this.btRemoverFoto.Size = new System.Drawing.Size(38, 36);
+            this.btRemoverFoto.TabIndex = 13;
+            this.btRemoverFoto.TabStop = false;
+            this.btRemoverFoto.UseVisualStyleBackColor = true;
+            this.btRemoverFoto.Click += new System.EventHandler(this.btRemoverFoto_Click);
             // 
             // button3
             // 
@@ -680,12 +682,12 @@
             this.BackColor = System.Drawing.Color.FloralWhite;
             this.ClientSize = new System.Drawing.Size(1159, 761);
             this.Controls.Add(this.button5);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btRemoverFoto);
             this.Controls.Add(this.btSalvar);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.btAddFoto);
+            this.Controls.Add(this.imgCliente);
             this.Controls.Add(this.cbCidade);
             this.Controls.Add(this.opF);
             this.Controls.Add(this.cbBairro);
@@ -734,7 +736,7 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgCliente)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -780,9 +782,9 @@
         private System.Windows.Forms.ComboBox cbCidade;
         private System.Windows.Forms.RadioButton opF;
         private System.Windows.Forms.ComboBox cbBairro;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.PictureBox imgCliente;
+        private System.Windows.Forms.Button btAddFoto;
+        private System.Windows.Forms.Button btRemoverFoto;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button btSalvar;

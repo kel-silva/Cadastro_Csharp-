@@ -6,6 +6,7 @@ using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Drawing.Text;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Security;
 using System.Text;
@@ -89,7 +90,7 @@ namespace Cadastro
                     cmd.CommandText = "SELECT @@IDENTITY";
                     txtId.Text = cmd.ExecuteScalar().ToString();
                 }
-                MessageBox.Show("OK");
+                MessageBox.Show("SUCESSO OK");
 
             }
 
@@ -382,6 +383,77 @@ namespace Cadastro
         private void cbCidade_TextChanged(object sender, EventArgs e)
         {
             Funcoes.priMaiuscula(cbCidade); 
+        }
+
+        private void btAddFoto_Click(object sender, EventArgs e)
+        {
+
+            if (txtId.Text == "")
+
+            {
+                Funcoes.MsgError("Salve  os Dados do Cliente Primeiro");
+                return; 
+            
+            }
+            OpenFileDialog caixa = new OpenFileDialog();
+
+            caixa.Filter = ("Arquivos de imagem|*.jpg;*.jpeg;*.png;*.gif;*.bmp");
+
+
+            if (caixa.ShowDialog() == DialogResult.OK)
+            {
+            imgCliente.Image= Image.FromFile(caixa.FileName);
+                File.Copy(caixa.FileName,AppDomain.CurrentDomain.BaseDirectory + "/Fotos/" + txtId.Text + ".png");
+            
+            }
+            
+        }
+
+        private void btRemoverFoto_Click(object sender, EventArgs e)
+        {
+
+            /*  if (imgCliente.Image == Properties.Resources.businessman_icon_260nw_564112600) ;
+              {
+                  if (txtId.Text == "")
+                  {
+                      Funcoes.MsgError("Não ha foto para ser Removida");
+                      return;
+                  }
+
+                  //file existis
+                  if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + "/Fotos/" + txtId.Text + ".png")) ;
+                  {
+
+                      Funcoes.MsgError("Não ha foto para Remover");
+                      return;
+                  }
+
+
+              }
+
+              if (Funcoes.Pergunta("Deseja de fato remover esta foto?") == false) return;
+                   imgCliente.Image = Properties.Resources.businessman_icon_260nw_564112600;
+                  File.Delete(AppDomain.CurrentDomain.BaseDirectory + "/Fotos/" + txtId.Text + ".png");
+            */
+
+            if (txtId.Text == "")
+            {
+                Funcoes.MsgError("Nao ha foto para ser removida");
+                return;
+            }
+            if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + "/Fotos/" + txtId.Text + ".png") == false)
+            {
+
+                Funcoes.MsgError("Nao ha fotos para remover");
+                return;
+            }
+
+
+            if (Funcoes.Pergunta("Deseja de fato remover esta foto?") == false)
+                return;
+            imgCliente.Image = Properties.Resources.businessman_icon_260nw_564112600;
+            File.Delete(AppDomain.CurrentDomain.BaseDirectory + "/Fotos/" + txtId.Text + ".png");
+
         }
     }
 
