@@ -16,7 +16,7 @@ namespace Cadastro
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmCadastro());
+            Application.Run(new FrmMenuClientes());
         }
     }
 }

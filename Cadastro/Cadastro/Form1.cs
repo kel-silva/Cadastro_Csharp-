@@ -16,9 +16,9 @@ using MySql.Data.MySqlClient;
 
 namespace Cadastro
 {
-    public partial class FrmCadastro : Form
+    public partial class FrmCadCliente : Form
     {
-        public FrmCadastro()
+        public FrmCadCliente()
         {
             InitializeComponent();
         }

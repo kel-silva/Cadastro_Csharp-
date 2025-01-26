@@ -7,7 +7,6 @@ C:\CURSOS\Cadastro_Csharp\Cadastro\Cadastro\obj\Debug\Cadastro.csproj.GenerateRe
 C:\CURSOS\Cadastro_Csharp\Cadastro\Cadastro\obj\Debug\Cadastro.csproj.CoreCompileInputs.cache
 C:\CURSOS\Cadastro_Csharp\Cadastro\Cadastro\obj\Debug\Cadastro.exe
 C:\CURSOS\Cadastro_Csharp\Cadastro\Cadastro\obj\Debug\Cadastro.pdb
-C:\CURSOS\Cadastro_Csharp\Cadastro\Cadastro\obj\Debug\Cadastro.FrmCadastro.resources
 C:\CURSOS\Cadastro_Csharp\Cadastro\Cadastro\bin\Debug\BouncyCastle.Cryptography.dll
 C:\CURSOS\Cadastro_Csharp\Cadastro\Cadastro\bin\Debug\Google.Protobuf.dll
 C:\CURSOS\Cadastro_Csharp\Cadastro\Cadastro\bin\Debug\K4os.Compression.LZ4.dll
@@ -41,3 +40,5 @@ C:\CURSOS\Cadastro_Csharp\Cadastro\Cadastro\bin\Debug\System.Numerics.Vectors.xm
 C:\CURSOS\Cadastro_Csharp\Cadastro\Cadastro\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\CURSOS\Cadastro_Csharp\Cadastro\Cadastro\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\CURSOS\Cadastro_Csharp\Cadastro\Cadastro\obj\Debug\Cadastro.csproj.Up2Date
+C:\CURSOS\Cadastro_Csharp\Cadastro\Cadastro\obj\Debug\Cadastro.FrmCadCliente.resources
+C:\CURSOS\Cadastro_Csharp\Cadastro\Cadastro\obj\Debug\Cadastro.FrmMenuClientes.resources
