@@ -22,11 +22,12 @@ namespace Cadastro
         {
             InitializeComponent();
         }
-
+        string  strCon = "Server=127.0.0.1;Port=3306;Database=base_clienteS;User=root;Password=";
+        string pastaFotos = AppDomain.CurrentDomain.BaseDirectory + "/Fotos/";
        
         private void SalvarClienteMysql()
         {
-            using (MySqlConnection Conexao = new MySqlConnection("Server=127.0.0.1;Port=3306;Database=base_clienteS;User=root;Password="))
+            using (MySqlConnection Conexao = new MySqlConnection(strCon))
             {
              
 
@@ -34,7 +35,23 @@ namespace Cadastro
 
                 using (MySqlCommand cmd = Conexao.CreateCommand())
                 {
-                    cmd.CommandText = "INSERT INTO clientes(nome,documento,genero,rg,estado_civil,nasc,cep,endereco,numero,bairro,estado,celular,email,obs,situacao)   VALUES (@nome,@documento,@genero,@rg,@estado_civil,@nasc,@cep,@endereco,@numero,@bairro,@estado,@celular,@email,@obs,@situacao)";
+
+                    if (txtId.Text == "")
+                    {
+                        cmd.CommandText = "INSERT INTO clientes(nome,documento,genero,rg,estado_civil,nasc,cep,endereco,numero,bairro,estado,celular,email,obs,situacao)   VALUES (@nome,@documento,@genero,@rg,@estado_civil,@nasc,@cep,@endereco,@numero,@bairro,@estado,@celular,@email,@obs,@situacao)";
+                    }
+                    else
+                    {
+
+                        cmd.CommandText = "UPDATE clientes SET  nome = @nome,documento = @documento,genero = @genero,rg = @rg,estado_civil = @estado_civil,nasc = @nasc,cep = @cep,endereco = @endereco,numero = @numero,bairro = @bairro,estado = @estado,celular = @celular,email = @email,obs = @obs,situacao = @situacao WHERE id = "+ txtId.Text;
+
+
+                    }
+
+
+
+
+
                     cmd.Parameters.AddWithValue("@nome", txtNome.Text);
                     cmd.Parameters.AddWithValue("@documento", txtDoc.Text);
 
@@ -87,8 +104,11 @@ namespace Cadastro
                      
 
                     cmd.ExecuteNonQuery();
+
+                    if (txtId.Text == "") { 
                     cmd.CommandText = "SELECT @@IDENTITY";
                     txtId.Text = cmd.ExecuteScalar().ToString();
+                    }
                 }
                 MessageBox.Show("SUCESSO OK");
 
@@ -198,6 +218,8 @@ namespace Cadastro
 
 
             ckeckAtivo.Checked = true;
+            btSalvar.Text = "Salvar";
+            imgCliente.Image =  Properties.Resources.businessman_icon_260nw_564112600;
 
 
 
@@ -214,16 +236,23 @@ namespace Cadastro
 
         private void FrmCadastro_Load(object sender, EventArgs e)
         {
-            using (MySqlConnection Conexao = new MySqlConnection("Server=127.0.0.1;Port=3306;Database=base_clienteS;User=root;Password="))
+            if (txtId.Text == "")
+                return;
+            btSalvar.Text = "Atualixar";
+            //
+            using (MySqlConnection Conexao = new MySqlConnection(strCon))
             {
                 Conexao.Open();
                 using (MySqlCommand cmd = Conexao.CreateCommand())
                 {
 
                     cmd.CommandText = "SELECT * FROM clientes WHERE id = " + txtId.Text;
+                   
+                    
+                    
+                    
                     DataTable dt = new DataTable();
-
-                    using (MySqlDataAdapter da = new MySqlDataAdapter(cmd))
+            using (MySqlDataAdapter da = new MySqlDataAdapter(cmd))
                     {
                         da.Fill(dt);
                         txtNome.Text = dt.Rows[0]["nome"].ToString();
@@ -282,9 +311,9 @@ namespace Cadastro
                             ckeckAtivo.Checked = false;
                         }
 
-                        if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + "/Fotos/" + txtId.Text + ".png"))
+                        if (File.Exists(pastaFotos + txtId.Text + ".png"))
                         {
-                            imgCliente.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "/Fotos/" + txtId.Text + ".png");
+                            imgCliente.Image = Image.FromFile(pastaFotos + txtId.Text + ".png");
 
                         }
                         else
@@ -484,7 +513,7 @@ namespace Cadastro
             if (caixa.ShowDialog() == DialogResult.OK)
             {
             imgCliente.Image= Image.FromFile(caixa.FileName);
-                File.Copy(caixa.FileName,AppDomain.CurrentDomain.BaseDirectory + "/Fotos/" + txtId.Text + ".png");
+                File.Copy(caixa.FileName,pastaFotos+ txtId.Text + ".png");
             
             }
             
@@ -522,7 +551,7 @@ namespace Cadastro
                 Funcoes.MsgError("Nao ha foto para ser removida");
                 return;
             }
-            if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + "/Fotos/" + txtId.Text + ".png") == false)
+            if (File.Exists(pastaFotos + txtId.Text + ".png") == false)
             {
 
                 Funcoes.MsgError("Nao ha fotos para remover");
@@ -533,7 +562,7 @@ namespace Cadastro
             if (Funcoes.Pergunta("Deseja de fato remover esta foto?") == false)
                 return;
             imgCliente.Image = Properties.Resources.businessman_icon_260nw_564112600;
-            File.Delete(AppDomain.CurrentDomain.BaseDirectory + "/Fotos/" + txtId.Text + ".png");
+            File.Delete(pastaFotos + txtId.Text + ".png");
 
         }
     }

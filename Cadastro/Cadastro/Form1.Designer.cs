@@ -254,9 +254,10 @@
             this.txtId.ForeColor = System.Drawing.Color.CadetBlue;
             this.txtId.Location = new System.Drawing.Point(304, 68);
             this.txtId.Name = "txtId";
+            this.txtId.ReadOnly = true;
             this.txtId.Size = new System.Drawing.Size(152, 27);
             this.txtId.TabIndex = 1;
-            this.txtId.Text = "49";
+            this.txtId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtNome
             // 
@@ -658,9 +659,9 @@
             this.btSalvar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.btSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btSalvar.ForeColor = System.Drawing.Color.Azure;
-            this.btSalvar.Location = new System.Drawing.Point(889, 701);
+            this.btSalvar.Location = new System.Drawing.Point(853, 701);
             this.btSalvar.Name = "btSalvar";
-            this.btSalvar.Size = new System.Drawing.Size(164, 36);
+            this.btSalvar.Size = new System.Drawing.Size(200, 36);
             this.btSalvar.TabIndex = 19;
             this.btSalvar.Text = "Salvar";
             this.btSalvar.UseVisualStyleBackColor = false;
