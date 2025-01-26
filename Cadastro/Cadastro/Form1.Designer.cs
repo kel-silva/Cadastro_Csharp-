@@ -256,6 +256,7 @@
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(152, 27);
             this.txtId.TabIndex = 1;
+            this.txtId.Text = "49";
             // 
             // txtNome
             // 
