@@ -725,7 +725,7 @@
             this.MinimizeBox = false;
             this.Name = "FrmCadCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Cadastro Clientes";
             this.Load += new System.EventHandler(this.FrmCadastro_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

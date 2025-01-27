@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "C:\\CURSOS\\Cadastro_Csharp\\Cadastro\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3BBF5001-8CF8-43DD-B944-F6B6BA6B1B7B}|Cadastro\\Cadastro.csproj|c:\\cursos\\cadastro_csharp\\cadastro\\cadastro\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3BBF5001-8CF8-43DD-B944-F6B6BA6B1B7B}|Cadastro\\Cadastro.csproj|solutionrelative:cadastro\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3BBF5001-8CF8-43DD-B944-F6B6BA6B1B7B}|Cadastro\\Cadastro.csproj|c:\\cursos\\cadastro_csharp\\cadastro\\cadastro\\frmclientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3BBF5001-8CF8-43DD-B944-F6B6BA6B1B7B}|Cadastro\\Cadastro.csproj|solutionrelative:cadastro\\frmclientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3BBF5001-8CF8-43DD-B944-F6B6BA6B1B7B}|Cadastro\\Cadastro.csproj|C:\\CURSOS\\Cadastro_Csharp\\Cadastro\\cadastro\\funcoes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3BBF5001-8CF8-43DD-B944-F6B6BA6B1B7B}|Cadastro\\Cadastro.csproj|solutionrelative:cadastro\\funcoes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3BBF5001-8CF8-43DD-B944-F6B6BA6B1B7B}|Cadastro\\Cadastro.csproj|C:\\CURSOS\\Cadastro_Csharp\\Cadastro\\cadastro\\frmclientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3BBF5001-8CF8-43DD-B944-F6B6BA6B1B7B}|Cadastro\\Cadastro.csproj|solutionrelative:cadastro\\frmclientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3BBF5001-8CF8-43DD-B944-F6B6BA6B1B7B}|Cadastro\\Cadastro.csproj|C:\\CURSOS\\Cadastro_Csharp\\Cadastro\\cadastro\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{3BBF5001-8CF8-43DD-B944-F6B6BA6B1B7B}|Cadastro\\Cadastro.csproj|solutionrelative:cadastro\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3BBF5001-8CF8-43DD-B944-F6B6BA6B1B7B}|Cadastro\\Cadastro.csproj|C:\\CURSOS\\Cadastro_Csharp\\Cadastro\\cadastro\\frmclientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{3BBF5001-8CF8-43DD-B944-F6B6BA6B1B7B}|Cadastro\\Cadastro.csproj|solutionrelative:cadastro\\frmclientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{3BBF5001-8CF8-43DD-B944-F6B6BA6B1B7B}|Cadastro\\Cadastro.csproj|C:\\CURSOS\\Cadastro_Csharp\\Cadastro\\cadastro\\funcoes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3BBF5001-8CF8-43DD-B944-F6B6BA6B1B7B}|Cadastro\\Cadastro.csproj|solutionrelative:cadastro\\funcoes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BBF5001-8CF8-43DD-B944-F6B6BA6B1B7B}|Cadastro\\Cadastro.csproj|c:\\cursos\\cadastro_csharp\\cadastro\\cadastro\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3BBF5001-8CF8-43DD-B944-F6B6BA6B1B7B}|Cadastro\\Cadastro.csproj|solutionrelative:cadastro\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,35 +30,49 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
+              "Title": "FrmClientes.cs",
+              "DocumentMoniker": "C:\\CURSOS\\Cadastro_Csharp\\Cadastro\\Cadastro\\FrmClientes.cs",
+              "RelativeDocumentMoniker": "Cadastro\\FrmClientes.cs",
+              "ToolTip": "C:\\CURSOS\\Cadastro_Csharp\\Cadastro\\Cadastro\\FrmClientes.cs",
+              "RelativeToolTip": "Cadastro\\FrmClientes.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAACAAAABMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-27T16:37:27.885Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "FrmClientes.cs [Design]",
               "DocumentMoniker": "C:\\CURSOS\\Cadastro_Csharp\\Cadastro\\Cadastro\\FrmClientes.cs",
               "RelativeDocumentMoniker": "Cadastro\\FrmClientes.cs",
               "ToolTip": "C:\\CURSOS\\Cadastro_Csharp\\Cadastro\\Cadastro\\FrmClientes.cs [Design]",
               "RelativeToolTip": "Cadastro\\FrmClientes.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-26T23:26:24.782Z"
+              "WhenOpened": "2025-01-26T23:26:24.782Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Funcoes.cs",
               "DocumentMoniker": "C:\\CURSOS\\Cadastro_Csharp\\Cadastro\\Cadastro\\Funcoes.cs",
               "RelativeDocumentMoniker": "Cadastro\\Funcoes.cs",
               "ToolTip": "C:\\CURSOS\\Cadastro_Csharp\\Cadastro\\Cadastro\\Funcoes.cs",
               "RelativeToolTip": "Cadastro\\Funcoes.cs",
-              "ViewState": "AgIAADYAAAAAAAAAAAAowFQAAABoAAAAAAAAAA==",
+              "ViewState": "AgIAABcAAAAAAAAAAAAcwFQAAABoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-17T12:48:06.996Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\CURSOS\\Cadastro_Csharp\\Cadastro\\Cadastro\\Form1.cs",
               "RelativeDocumentMoniker": "Cadastro\\Form1.cs",
@@ -74,7 +92,8 @@
               "ToolTip": "C:\\CURSOS\\Cadastro_Csharp\\Cadastro\\Cadastro\\Form1.cs [Design]",
               "RelativeToolTip": "Cadastro\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-08T03:45:37.282Z"
+              "WhenOpened": "2025-01-08T03:45:37.282Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

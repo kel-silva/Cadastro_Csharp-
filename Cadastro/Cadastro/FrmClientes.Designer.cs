@@ -34,7 +34,10 @@
             this.btRelatorio = new System.Windows.Forms.Button();
             this.btEditar = new System.Windows.Forms.Button();
             this.btAdd = new System.Windows.Forms.Button();
+            this.dgLista = new System.Windows.Forms.DataGridView();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgLista)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -106,18 +109,32 @@
             this.btAdd.UseVisualStyleBackColor = false;
             this.btAdd.Click += new System.EventHandler(this.btAdd_Click);
             // 
+            // dgLista
+            // 
+            this.dgLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgLista.Location = new System.Drawing.Point(18, 124);
+            this.dgLista.Name = "dgLista";
+            this.dgLista.RowHeadersWidth = 51;
+            this.dgLista.RowTemplate.Height = 24;
+            this.dgLista.Size = new System.Drawing.Size(1232, 487);
+            this.dgLista.TabIndex = 1;
+            this.dgLista.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
             // FrmMenuClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FloralWhite;
             this.ClientSize = new System.Drawing.Size(1262, 673);
+            this.Controls.Add(this.dgLista);
             this.Controls.Add(this.groupBox1);
             this.ForeColor = System.Drawing.Color.SteelBlue;
             this.Name = "FrmMenuClientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Clientes";
+            this.Load += new System.EventHandler(this.FrmMenuClientes_Load);
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgLista)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -129,5 +146,7 @@
         private System.Windows.Forms.Button btFicha;
         private System.Windows.Forms.Button btRelatorio;
         private System.Windows.Forms.Button btEditar;
+        private System.Windows.Forms.DataGridView dgLista;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

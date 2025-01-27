@@ -22,5 +22,15 @@ namespace Cadastro
             FrmCadCliente frmcad = new FrmCadCliente(); 
             frmcad.ShowDialog();
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void FrmMenuClientes_Load(object sender, EventArgs e)
+        {
+            dgLista.DataSource = Funcoes.BuscaSql("SELECT * FROM clientes");
+        }
     }
 }
