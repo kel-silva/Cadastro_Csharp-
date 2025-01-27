@@ -1,5 +1,7 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -49,6 +51,40 @@ namespace Cadastro
                 cb.SelectionStart = cb.Text.Length;
 
             }
+        }
+
+        public static DataTable BuscaSql(string ComandoSql)
+
+
+        
+        {
+            DataTable dt = new DataTable();
+            using (MySqlConnection Conexao = new MySqlConnection("Server=127.0.0.1;Port=3306;Database=base_clienteS;User=root;Password="))
+            { 
+            
+            Conexao.Open();
+                using (MySqlCommand cmd = Conexao.CreateCommand())
+                {
+
+                    cmd.CommandText = ComandoSql;   
+                    using (MySqlDataAdapter da = new MySqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);         
+                    
+                    }
+                }
+           
+            return dt;
+            }
+
+
+        }
+
+        public static void carregarComboBox(ComboBox cb, string tabela, string campo)
+        {
+            cb.DataSource = Funcoes.BuscaSql("SELECT DISTINCT "+ campo+" FROM "+ tabela +" WHERE "+campo+" <> ''");
+            cb.SelectedIndex = -1;
+
         }
     }
 }

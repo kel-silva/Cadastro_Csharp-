@@ -38,12 +38,12 @@ namespace Cadastro
 
                     if (txtId.Text == "")
                     {
-                        cmd.CommandText = "INSERT INTO clientes(nome,documento,genero,rg,estado_civil,nasc,cep,endereco,numero,bairro,estado,celular,email,obs,situacao)   VALUES (@nome,@documento,@genero,@rg,@estado_civil,@nasc,@cep,@endereco,@numero,@bairro,@estado,@celular,@email,@obs,@situacao)";
+                        cmd.CommandText = "INSERT INTO clientes(nome,documento,genero,rg,estado_civil,nasc,cep,endereco,numero,bairro,cidade,estado,celular,email,obs,situacao)   VALUES (@nome,@documento,@genero,@rg,@estado_civil,@nasc,@cep,@endereco,@numero,@bairro,@cidade,@estado,@celular,@email,@obs,@situacao)";
                     }
                     else
                     {
 
-                        cmd.CommandText = "UPDATE clientes SET  nome = @nome,documento = @documento,genero = @genero,rg = @rg,estado_civil = @estado_civil,nasc = @nasc,cep = @cep,endereco = @endereco,numero = @numero,bairro = @bairro,estado = @estado,celular = @celular,email = @email,obs = @obs,situacao = @situacao WHERE id = "+ txtId.Text;
+                        cmd.CommandText = "UPDATE clientes SET  nome = @nome,documento = @documento,genero = @genero,rg = @rg,estado_civil = @estado_civil,nasc = @nasc,cep = @cep,endereco = @endereco,numero = @numero,bairro = @bairro,estado = @estado,@cidade = @cidade,celular = @celular,email = @email,obs = @obs,situacao = @situacao WHERE id = "+ txtId.Text;
 
 
                     }
@@ -88,6 +88,7 @@ namespace Cadastro
                     cmd.Parameters.AddWithValue("@numero", txtNumero.Text);
                     cmd.Parameters.AddWithValue("@bairro", cbBairro.Text);
                     cmd.Parameters.AddWithValue("@estado", cbEstado.Text);
+                    cmd.Parameters.AddWithValue("@cidade", cbCidade.Text);
                     cmd.Parameters.AddWithValue("@celular", txtFone.Text);
                     cmd.Parameters.AddWithValue("@email", txtEmail.Text);
                     cmd.Parameters.AddWithValue("@obs", txtOBS.Text);
@@ -236,96 +237,93 @@ namespace Cadastro
 
         private void FrmCadastro_Load(object sender, EventArgs e)
         {
+
+            Funcoes.carregarComboBox(cbEndereco,"clientes","endereco");
+            Funcoes.carregarComboBox(cbBairro,"clientes","bairro");
+            Funcoes.carregarComboBox(cbCidade,"clientes","cidade");
+       
+            
+       
+
             if (txtId.Text == "")
                 return;
             btSalvar.Text = "Atualixar";
-            //
-            using (MySqlConnection Conexao = new MySqlConnection(strCon))
+            //"SELECT * FROM clientes WHERE id = " + txtId.Text;
+            DataTable dt = Funcoes.BuscaSql("SELECT * FROM clientes WHERE id = " + txtId.Text);
+
+
+
+            txtNome.Text = dt.Rows[0]["nome"].ToString();
+            txtRG.Text = dt.Rows[0]["rg"].ToString();
+            cbEstado_civil.Text = dt.Rows[0]["estado_civil"].ToString();
+            txtNasc.Text = dt.Rows[0]["nasc"].ToString();
+            txtCep.Text = dt.Rows[0]["cep"].ToString();
+            cbEndereco.Text = dt.Rows[0]["endereco"].ToString();
+            txtNumero.Text = dt.Rows[0]["numero"].ToString();
+            cbBairro.Text = dt.Rows[0]["bairro"].ToString();
+            cbCidade.Text = dt.Rows[0]["cidade"].ToString();
+            cbEstado.Text = dt.Rows[0]["estado"].ToString();
+            txtFone.Text = dt.Rows[0]["celular"].ToString();
+            txtEmail.Text = dt.Rows[0]["email"].ToString();
+            txtOBS.Text = dt.Rows[0]["obs"].ToString();
+
+
+            if (dt.Rows[0]["documento"].ToString().Length == 11)
             {
-                Conexao.Open();
-                using (MySqlCommand cmd = Conexao.CreateCommand())
-                {
-
-                    cmd.CommandText = "SELECT * FROM clientes WHERE id = " + txtId.Text;
-                   
-                    
-                    
-                    
-                    DataTable dt = new DataTable();
-            using (MySqlDataAdapter da = new MySqlDataAdapter(cmd))
-                    {
-                        da.Fill(dt);
-                        txtNome.Text = dt.Rows[0]["nome"].ToString();
-                        txtRG.Text = dt.Rows[0]["rg"].ToString();
-                        cbEstado_civil.Text = dt.Rows[0]["estado_civil"].ToString();
-                        txtNasc.Text = dt.Rows[0]["nasc"].ToString();
-                        txtCep.Text = dt.Rows[0]["cep"].ToString();
-                        cbEndereco.Text = dt.Rows[0]["endereco"].ToString();
-                        txtNumero.Text = dt.Rows[0]["numero"].ToString();
-                        cbBairro.Text = dt.Rows[0]["bairro"].ToString();
-                        cbCidade.Text = dt.Rows[0]["estado"].ToString();
-                        cbEstado.Text = dt.Rows[0]["estado"].ToString();
-                        txtFone.Text = dt.Rows[0]["celular"].ToString();
-                        txtEmail.Text = dt.Rows[0]["email"].ToString();
-                        txtOBS.Text = dt.Rows[0]["obs"].ToString();
-
-
-                        if (dt.Rows[0]["documento"].ToString().Length == 11)
-                        {
-                            OpCpf.Checked = true;
-                        }
-                        else
-                        {
-                            Opcnpj.Checked = true;
-
-                        }
-                        txtDoc.Text = dt.Rows[0]["documento"].ToString();
-
-
-                        //
-                        if (dt.Rows[0]["genero"].ToString() == "Masculino")
-                        {
-
-                            opM.Checked = true;
-                        }
-                        else if (dt.Rows[0]["genero"].ToString() == "Feminino")
-                        {
-
-                            opF.Checked = true;
-                        }
-                        else
-                        {
-                            opO.Checked = true;
-
-                        }
-                        //parei
-                        ///aki  mostra apenas fazendo em access e nao em mysql ai tentei ate aki olha
-                        ///
-                        if (dt.Rows[0]["situacao"].ToString() == "Ativo")
-                        {
-
-                            ckeckAtivo.Checked = true;
-                        }
-                        else
-                        {
-                            ckeckAtivo.Checked = false;
-                        }
-
-                        if (File.Exists(pastaFotos + txtId.Text + ".png"))
-                        {
-                            imgCliente.Image = Image.FromFile(pastaFotos + txtId.Text + ".png");
-
-                        }
-                        else
-                        {
-
-                            imgCliente.Image = Properties.Resources.businessman_icon_260nw_564112600;
-                        }
-
-                    }
-                }
+                OpCpf.Checked = true;
             }
+            else
+            {
+                Opcnpj.Checked = true;
+
+            }
+            txtDoc.Text = dt.Rows[0]["documento"].ToString();
+
+
+            //
+            if (dt.Rows[0]["genero"].ToString() == "Masculino")
+            {
+
+                opM.Checked = true;
+            }
+            else if (dt.Rows[0]["genero"].ToString() == "Feminino")
+            {
+
+                opF.Checked = true;
+            }
+            else
+            {
+                opO.Checked = true;
+
+            }
+            //parei
+            ///aki  mostra apenas fazendo em access e nao em mysql ai tentei ate aki olha
+            ///
+            if (dt.Rows[0]["situacao"].ToString() == "Ativo")
+            {
+
+                ckeckAtivo.Checked = true;
+            }
+            else
+            {
+                ckeckAtivo.Checked = false;
+            }
+
+            if (File.Exists(pastaFotos + txtId.Text + ".png"))
+            {
+                imgCliente.Image = Image.FromFile(pastaFotos + txtId.Text + ".png");
+
+            }
+            else
+            {
+
+                imgCliente.Image = Properties.Resources.businessman_icon_260nw_564112600;
+            }
+
         }
+                
+            
+        
 
         private void OpCpf_CheckedChanged(object sender, EventArgs e)
         {

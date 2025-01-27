@@ -64,8 +64,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cbEstado = new System.Windows.Forms.ComboBox();
             this.cbEstado_civil = new System.Windows.Forms.ComboBox();
-            this.cbEndereco = new System.Windows.Forms.ComboBox();
-            this.cbCidade = new System.Windows.Forms.ComboBox();
             this.opF = new System.Windows.Forms.RadioButton();
             this.cbBairro = new System.Windows.Forms.ComboBox();
             this.imgCliente = new System.Windows.Forms.PictureBox();
@@ -75,6 +73,8 @@
             this.button4 = new System.Windows.Forms.Button();
             this.btSalvar = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.cbEndereco = new System.Windows.Forms.ComboBox();
+            this.cbCidade = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgCliente)).BeginInit();
@@ -530,33 +530,6 @@
             this.cbEstado_civil.TabIndex = 5;
             this.cbEstado_civil.Validating += new System.ComponentModel.CancelEventHandler(this.cbEstado_civil_Validating);
             // 
-            // cbEndereco
-            // 
-            this.cbEndereco.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbEndereco.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbEndereco.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.cbEndereco.ForeColor = System.Drawing.Color.CadetBlue;
-            this.cbEndereco.FormattingEnabled = true;
-            this.cbEndereco.Location = new System.Drawing.Point(367, 307);
-            this.cbEndereco.Name = "cbEndereco";
-            this.cbEndereco.Size = new System.Drawing.Size(563, 28);
-            this.cbEndereco.TabIndex = 8;
-            this.cbEndereco.SelectedIndexChanged += new System.EventHandler(this.cbEndereco_SelectedIndexChanged);
-            this.cbEndereco.TextChanged += new System.EventHandler(this.cbEndereco_TextChanged);
-            // 
-            // cbCidade
-            // 
-            this.cbCidade.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbCidade.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbCidade.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.cbCidade.ForeColor = System.Drawing.Color.CadetBlue;
-            this.cbCidade.FormattingEnabled = true;
-            this.cbCidade.Location = new System.Drawing.Point(367, 406);
-            this.cbCidade.Name = "cbCidade";
-            this.cbCidade.Size = new System.Drawing.Size(687, 28);
-            this.cbCidade.TabIndex = 11;
-            this.cbCidade.TextChanged += new System.EventHandler(this.cbCidade_TextChanged);
-            // 
             // opF
             // 
             this.opF.AutoSize = true;
@@ -573,6 +546,7 @@
             this.cbBairro.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbBairro.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbBairro.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.cbBairro.DisplayMember = "bairro";
             this.cbBairro.ForeColor = System.Drawing.Color.CadetBlue;
             this.cbBairro.FormattingEnabled = true;
             this.cbBairro.Location = new System.Drawing.Point(85, 406);
@@ -677,12 +651,33 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click_1);
             // 
+            // cbEndereco
+            // 
+            this.cbEndereco.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbEndereco.DisplayMember = "endereco";
+            this.cbEndereco.FormattingEnabled = true;
+            this.cbEndereco.Location = new System.Drawing.Point(367, 307);
+            this.cbEndereco.Name = "cbEndereco";
+            this.cbEndereco.Size = new System.Drawing.Size(563, 28);
+            this.cbEndereco.TabIndex = 21;
+            // 
+            // cbCidade
+            // 
+            this.cbCidade.DisplayMember = "cidade";
+            this.cbCidade.FormattingEnabled = true;
+            this.cbCidade.Location = new System.Drawing.Point(367, 406);
+            this.cbCidade.Name = "cbCidade";
+            this.cbCidade.Size = new System.Drawing.Size(674, 28);
+            this.cbCidade.TabIndex = 22;
+            // 
             // FrmCadCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FloralWhite;
             this.ClientSize = new System.Drawing.Size(1159, 761);
+            this.Controls.Add(this.cbCidade);
+            this.Controls.Add(this.cbEndereco);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.btRemoverFoto);
             this.Controls.Add(this.btSalvar);
@@ -690,10 +685,8 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.btAddFoto);
             this.Controls.Add(this.imgCliente);
-            this.Controls.Add(this.cbCidade);
             this.Controls.Add(this.opF);
             this.Controls.Add(this.cbBairro);
-            this.Controls.Add(this.cbEndereco);
             this.Controls.Add(this.cbEstado_civil);
             this.Controls.Add(this.cbEstado);
             this.Controls.Add(this.groupBox1);
@@ -780,8 +773,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbEstado;
         private System.Windows.Forms.ComboBox cbEstado_civil;
-        private System.Windows.Forms.ComboBox cbEndereco;
-        private System.Windows.Forms.ComboBox cbCidade;
         private System.Windows.Forms.RadioButton opF;
         private System.Windows.Forms.ComboBox cbBairro;
         private System.Windows.Forms.PictureBox imgCliente;
@@ -791,6 +782,8 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button btSalvar;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.ComboBox cbEndereco;
+        private System.Windows.Forms.ComboBox cbCidade;
     }
 }
 
