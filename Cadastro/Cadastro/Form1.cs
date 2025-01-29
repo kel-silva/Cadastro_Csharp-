@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
+
 namespace Cadastro
 {
     public partial class FrmCadCliente : Form
@@ -43,12 +44,13 @@ namespace Cadastro
                     else
                     {
 
-                        cmd.CommandText = "UPDATE clientes SET  nome = @nome,documento = @documento,genero = @genero,rg = @rg,estado_civil = @estado_civil,nasc = @nasc,cep = @cep,endereco = @endereco,numero = @numero,bairro = @bairro,estado = @estado,@cidade = @cidade,celular = @celular,email = @email,obs = @obs,situacao = @situacao WHERE id = "+ txtId.Text;
-
+                        cmd.CommandText = "UPDATE clientes SET nome = @nome, documento = @documento, genero = @genero, rg = @rg , estado_civil = @estado_civil, nasc = @nasc,cep = @cep,endereco = @endereco, numero = @numero, bairro = @bairro, cidade = @cidade, estado = @estado, celular = @celular, email = @email, obs = @obs, situacao = @situacao WHERE id = " + txtId.Text;
+                        // PROFESSOR ENGRACADO QUE PRA CADASTRAR O NOVO FUNCIONA NORMAL RSRSRRSRS
 
                     }
 
 
+                    //kkkk kkkkkkkkkkmeu deus do ceu
 
 
 
@@ -319,11 +321,15 @@ namespace Cadastro
 
                 imgCliente.Image = Properties.Resources.businessman_icon_260nw_564112600;
             }
+         
+
 
         }
-                
-            
-        
+
+
+
+
+
 
         private void OpCpf_CheckedChanged(object sender, EventArgs e)
         {
@@ -418,7 +424,10 @@ namespace Cadastro
 
         private void txtNome_TextChanged(object sender, EventArgs e)
         {
-            Funcoes.priMaiuscula(txtNome);
+            //Funcoes.priMaiuscula(txtNome);
+            //Vou testar removendo a chamada para ver
+            //Se essa for mesmo a causa ai recomendo que vc nao use kkkkk
+            //até acharmos solução /
 
         }
 
@@ -479,18 +488,18 @@ namespace Cadastro
 
         private void cbEndereco_TextChanged(object sender, EventArgs e)
         {
-            Funcoes.priMaiuscula(cbEndereco);
+            //Funcoes.priMaiuscula(cbEndereco);
 
         }
 
         private void cbBairro_TextChanged(object sender, EventArgs e)
         {
-            Funcoes.priMaiuscula(cbBairro);
+            //Funcoes.priMaiuscula(cbBairro);
         }
 
         private void cbCidade_TextChanged(object sender, EventArgs e)
         {
-            Funcoes.priMaiuscula(cbCidade); 
+            //Funcoes.priMaiuscula(cbCidade); 
         }
 
         private void btAddFoto_Click(object sender, EventArgs e)
@@ -562,6 +571,11 @@ namespace Cadastro
             imgCliente.Image = Properties.Resources.businessman_icon_260nw_564112600;
             File.Delete(pastaFotos + txtId.Text + ".png");
 
+        }
+
+        private void FrmCadCliente_Deactivate(object sender, EventArgs e)
+        {
+           
         }
     }
 

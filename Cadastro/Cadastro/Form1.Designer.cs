@@ -726,6 +726,7 @@
             this.Name = "FrmCadCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro Clientes";
+            this.Deactivate += new System.EventHandler(this.FrmCadCliente_Deactivate);
             this.Load += new System.EventHandler(this.FrmCadastro_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -752,7 +753,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.TextBox txtRG;
         private System.Windows.Forms.TextBox txtNumero;
@@ -784,6 +784,7 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.ComboBox cbEndereco;
         private System.Windows.Forms.ComboBox cbCidade;
+        public System.Windows.Forms.TextBox txtId;
     }
 }
 
