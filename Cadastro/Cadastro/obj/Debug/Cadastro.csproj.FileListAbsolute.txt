@@ -42,3 +42,5 @@ C:\CURSOS\Cadastro_Csharp\Cadastro\Cadastro\bin\Debug\System.Threading.Tasks.Ext
 C:\CURSOS\Cadastro_Csharp\Cadastro\Cadastro\obj\Debug\Cadastro.csproj.Up2Date
 C:\CURSOS\Cadastro_Csharp\Cadastro\Cadastro\obj\Debug\Cadastro.FrmCadCliente.resources
 C:\CURSOS\Cadastro_Csharp\Cadastro\Cadastro\obj\Debug\Cadastro.FrmMenuClientes.resources
+C:\CURSOS\Cadastro_Csharp\Cadastro\Cadastro\bin\Debug\Newtonsoft.Json.dll
+C:\CURSOS\Cadastro_Csharp\Cadastro\Cadastro\bin\Debug\Newtonsoft.Json.xml

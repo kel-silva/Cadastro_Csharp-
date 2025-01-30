@@ -8,11 +8,14 @@ using System.Drawing.Text;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using Newtonsoft.Json;
+
 
 
 namespace Cadastro
@@ -441,6 +444,61 @@ namespace Cadastro
                 MessageBox.Show("Informacao imcompleta DO CEP");
                 e.Cancel = true;
             }
+
+            lblAvisos.Visible = true;   
+            Application.DoEvents(); 
+            cbEndereco.Text = string.Empty;
+            cbBairro.Text = string.Empty;
+            cbCidade.Text = string.Empty;
+            cbEstado.Text = string.Empty;
+
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    HttpResponseMessage resposta = client.GetAsync($"https://viacep.com.br/ws/{txtCep.Text}/json/").Result;
+
+
+
+
+                    dynamic json = JsonConvert.DeserializeObject(resposta.Content.ReadAsStringAsync().Result);
+
+                    if (json.erro == null)
+
+                    {
+                        cbEndereco.Text = (json.logradouro.ToString());
+                        cbBairro.Text = (json.bairro.ToString());
+                        cbCidade.Text = (json.localidade.ToString());
+                        cbEstado.Text = (json.uf.ToString());
+
+                        foreach (var item in cbEstado.Items)
+                        {
+                            if (item.ToString().Contains($"({cbEstado.Text})"))
+                            { 
+                                    cbEstado.Text += item.ToString();
+                                break;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("O Cep nao foi Localizado");
+                    }
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("Ovcorreu um erro\r Verifique sua conexao com a internet ");
+                }
+               
+                
+                
+                // MessageBox.Show(resposta.Content.ReadAsStringAsync().Result);
+
+               // client.GetAsync("viacep.com.br/ws/01001000/json/").Result.ToString();
+            }
+        
+        lblAvisos.Visible = false;
         }
 
         private void txtDoc_Validating(object sender, CancelEventArgs e)

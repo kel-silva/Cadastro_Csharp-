@@ -117,7 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="cbEstado.Items" xml:space="preserve">
-    <value>O Brasil é um país continental com uma rica diversidade cultural e geográfica, dividido em 26 estados e um Distrito Federal. Cada estado possui suas particularidades, desde paisagens exuberantes até costumes únicos.</value>
-  </data>
 </root>

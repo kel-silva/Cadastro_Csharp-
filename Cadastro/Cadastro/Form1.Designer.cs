@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCadCliente));
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -75,6 +74,7 @@
             this.button5 = new System.Windows.Forms.Button();
             this.cbEndereco = new System.Windows.Forms.ComboBox();
             this.cbCidade = new System.Windows.Forms.ComboBox();
+            this.lblAvisos = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgCliente)).BeginInit();
@@ -385,7 +385,7 @@
             this.txtCep.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtCep.ForeColor = System.Drawing.Color.CadetBlue;
             this.txtCep.Location = new System.Drawing.Point(85, 307);
-            this.txtCep.Mask = "0000,000,00-00";
+            this.txtCep.Mask = "00000-000";
             this.txtCep.Name = "txtCep";
             this.txtCep.Size = new System.Drawing.Size(252, 27);
             this.txtCep.TabIndex = 7;
@@ -473,38 +473,33 @@
             this.cbEstado.ForeColor = System.Drawing.Color.CadetBlue;
             this.cbEstado.FormattingEnabled = true;
             this.cbEstado.Items.AddRange(new object[] {
-            "Estados Brasileiros: Um Panorama Completo",
-            resources.GetString("cbEstado.Items"),
-            "",
-            "Para facilitar sua consulta, apresentamos abaixo a lista completa dos estados bra" +
-                "sileiros, sem as respectivas siglas:",
-            "",
-            "Acre",
-            "Alagoas",
-            "Amapá",
-            "Amazonas",
-            "Bahia",
-            "Ceará",
-            "Espírito Santo",
-            "Goiás",
-            "Maranhão",
-            "Mato Grosso",
-            "Mato Grosso do Sul",
-            "Minas Gerais",
-            "Pará",
-            "Paraíba",
-            "Paraná",
-            "Pernambuco",
-            "Piauí   ",
-            "Rio de Janeiro",
-            "Rio Grande do Norte",
-            "Rio Grande do Sul",
-            "Rondônia",
-            "Roraima",
-            "Santa Catarina",
-            "São Paulo",
-            "Sergipe   ",
-            "Tocantins"});
+            "Acre (AC)",
+            "Alagoas (AL)",
+            "Amapá (AP)",
+            "Amazonas (AM)",
+            "Bahia (BA)",
+            "Ceará (CE)",
+            "Distrito Federal (DF)",
+            "Espírito Santo (ES)",
+            "Goiás (GO)",
+            "Maranhão (MA)",
+            "Mato Grosso (MT)",
+            "Mato Grosso do Sul (MS)",
+            "Minas Gerais (MG)",
+            "Pará (PA)",
+            "Paraíba (PB)",
+            "Paraná (PR)",
+            "Pernambuco (PE)",
+            "Piauí (PI)",
+            "Rio de Janeiro (RJ)",
+            "Rio Grande do Norte (RN)",
+            "Rio Grande do Sul (RS)",
+            "Rondônia (RO)",
+            "Roraima 1  (RR)",
+            "Santa Catarina (SC)",
+            "São Paulo (SP)",
+            "Sergipe (SE)",
+            "Tocantins (TO) 2 "});
             this.cbEstado.Location = new System.Drawing.Point(85, 473);
             this.cbEstado.Name = "cbEstado";
             this.cbEstado.Size = new System.Drawing.Size(295, 28);
@@ -655,6 +650,7 @@
             // 
             this.cbEndereco.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbEndereco.DisplayMember = "endereco";
+            this.cbEndereco.ForeColor = System.Drawing.Color.CadetBlue;
             this.cbEndereco.FormattingEnabled = true;
             this.cbEndereco.Location = new System.Drawing.Point(367, 307);
             this.cbEndereco.Name = "cbEndereco";
@@ -664,11 +660,25 @@
             // cbCidade
             // 
             this.cbCidade.DisplayMember = "cidade";
+            this.cbCidade.ForeColor = System.Drawing.Color.CadetBlue;
             this.cbCidade.FormattingEnabled = true;
             this.cbCidade.Location = new System.Drawing.Point(367, 406);
             this.cbCidade.Name = "cbCidade";
             this.cbCidade.Size = new System.Drawing.Size(674, 28);
             this.cbCidade.TabIndex = 22;
+            // 
+            // lblAvisos
+            // 
+            this.lblAvisos.AutoSize = true;
+            this.lblAvisos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAvisos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.lblAvisos.Location = new System.Drawing.Point(81, 337);
+            this.lblAvisos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblAvisos.Name = "lblAvisos";
+            this.lblAvisos.Size = new System.Drawing.Size(222, 22);
+            this.lblAvisos.TabIndex = 0;
+            this.lblAvisos.Text = "Aguarde Consutando CEP";
+            this.lblAvisos.Visible = false;
             // 
             // FrmCadCliente
             // 
@@ -714,6 +724,7 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label4);
+            this.Controls.Add(this.lblAvisos);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.txtNome);
@@ -785,6 +796,7 @@
         private System.Windows.Forms.ComboBox cbEndereco;
         private System.Windows.Forms.ComboBox cbCidade;
         public System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.Label lblAvisos;
     }
 }
 
