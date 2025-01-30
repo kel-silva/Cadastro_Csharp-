@@ -29,15 +29,32 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenuClientes));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btFicha = new System.Windows.Forms.Button();
             this.btRelatorio = new System.Windows.Forms.Button();
             this.btEditar = new System.Windows.Forms.Button();
             this.btAdd = new System.Windows.Forms.Button();
             this.dgLista = new System.Windows.Forms.DataGridView();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.PesqEstCivil = new System.Windows.Forms.ComboBox();
+            this.PesqGenero = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.PesqNome = new System.Windows.Forms.TextBox();
+            this.PesqCod = new System.Windows.Forms.TextBox();
+            this.PesqEnderecos = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.PesqNasc = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.PesqAtivo = new System.Windows.Forms.RadioButton();
+            this.PesqTodos = new System.Windows.Forms.RadioButton();
+            this.PesqCancelado = new System.Windows.Forms.RadioButton();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.foto = new System.Windows.Forms.DataGridViewImageColumn();
             this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,15 +72,9 @@
             this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.obs = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.situacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.btPesquisar = new System.Windows.Forms.Button();
-            this.PesqNome = new System.Windows.Forms.TextBox();
-            this.PesqCod = new System.Windows.Forms.TextBox();
-            this.PesqGenero = new System.Windows.Forms.ComboBox();
-            this.PesqEstCivil = new System.Windows.Forms.ComboBox();
+            this.lblTotalCancelados = new System.Windows.Forms.Label();
+            this.lbltotal = new System.Windows.Forms.Label();
+            this.lbltotalAtivos = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgLista)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -78,7 +89,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.Black;
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(336, 96);
+            this.groupBox1.Size = new System.Drawing.Size(302, 96);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Acoes";
@@ -143,18 +154,19 @@
             // 
             this.dgLista.AllowUserToAddRows = false;
             this.dgLista.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.AliceBlue;
-            this.dgLista.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.AliceBlue;
+            this.dgLista.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgLista.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dgLista.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgLista.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgLista.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgLista.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgLista.ColumnHeadersHeight = 30;
             this.dgLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgLista.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -176,17 +188,235 @@
             this.obs,
             this.situacao});
             this.dgLista.EnableHeadersVisualStyles = false;
-            this.dgLista.Location = new System.Drawing.Point(18, 124);
+            this.dgLista.Location = new System.Drawing.Point(1, 114);
             this.dgLista.Name = "dgLista";
             this.dgLista.ReadOnly = true;
             this.dgLista.RowHeadersWidth = 4;
             this.dgLista.RowTemplate.Height = 30;
             this.dgLista.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgLista.Size = new System.Drawing.Size(1232, 487);
+            this.dgLista.Size = new System.Drawing.Size(1572, 487);
             this.dgLista.TabIndex = 1;
             this.dgLista.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgLista_CellClick);
             this.dgLista.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dgLista.Sorted += new System.EventHandler(this.dgLista_Sorted);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.PesqCancelado);
+            this.groupBox2.Controls.Add(this.PesqTodos);
+            this.groupBox2.Controls.Add(this.PesqAtivo);
+            this.groupBox2.Controls.Add(this.PesqEstCivil);
+            this.groupBox2.Controls.Add(this.PesqGenero);
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.PesqNasc);
+            this.groupBox2.Controls.Add(this.PesqEnderecos);
+            this.groupBox2.Controls.Add(this.PesqNome);
+            this.groupBox2.Controls.Add(this.PesqCod);
+            this.groupBox2.ForeColor = System.Drawing.Color.Black;
+            this.groupBox2.Location = new System.Drawing.Point(311, 12);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(1139, 96);
+            this.groupBox2.TabIndex = 0;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Opçoes de Pesquisa";
+            this.groupBox2.TextChanged += new System.EventHandler(this.groupBox2_TextChanged);
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // PesqEstCivil
+            // 
+            this.PesqEstCivil.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.PesqEstCivil.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.PesqEstCivil.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.PesqEstCivil.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PesqEstCivil.ForeColor = System.Drawing.Color.CadetBlue;
+            this.PesqEstCivil.FormattingEnabled = true;
+            this.PesqEstCivil.Items.AddRange(new object[] {
+            "Casado(a)",
+            "Solteiro(a)",
+            "Viuvo(a)",
+            "Divorciado(a)",
+            "Separado(a)"});
+            this.PesqEstCivil.Location = new System.Drawing.Point(493, 40);
+            this.PesqEstCivil.Name = "PesqEstCivil";
+            this.PesqEstCivil.Size = new System.Drawing.Size(166, 28);
+            this.PesqEstCivil.TabIndex = 7;
+            this.PesqEstCivil.TextChanged += new System.EventHandler(this.PesqCod_TextChanged);
+            // 
+            // PesqGenero
+            // 
+            this.PesqGenero.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.PesqGenero.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.PesqGenero.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.PesqGenero.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PesqGenero.ForeColor = System.Drawing.Color.CadetBlue;
+            this.PesqGenero.FormattingEnabled = true;
+            this.PesqGenero.Items.AddRange(new object[] {
+            "Masculino",
+            "Feminino",
+            "Outros"});
+            this.PesqGenero.Location = new System.Drawing.Point(232, 41);
+            this.PesqGenero.Name = "PesqGenero";
+            this.PesqGenero.Size = new System.Drawing.Size(255, 28);
+            this.PesqGenero.TabIndex = 6;
+            this.PesqGenero.TextChanged += new System.EventHandler(this.PesqCod_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.SteelBlue;
+            this.label1.Location = new System.Drawing.Point(63, 18);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(150, 22);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Nome CPF/CNPJ";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.SteelBlue;
+            this.label4.Location = new System.Drawing.Point(13, 18);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(24, 22);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Id";
+            // 
+            // PesqNome
+            // 
+            this.PesqNome.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.PesqNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PesqNome.ForeColor = System.Drawing.Color.CadetBlue;
+            this.PesqNome.Location = new System.Drawing.Point(67, 43);
+            this.PesqNome.Name = "PesqNome";
+            this.PesqNome.Size = new System.Drawing.Size(159, 26);
+            this.PesqNome.TabIndex = 2;
+            this.PesqNome.TextChanged += new System.EventHandler(this.PesqCod_TextChanged);
+            // 
+            // PesqCod
+            // 
+            this.PesqCod.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.PesqCod.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PesqCod.ForeColor = System.Drawing.Color.CadetBlue;
+            this.PesqCod.Location = new System.Drawing.Point(17, 43);
+            this.PesqCod.Name = "PesqCod";
+            this.PesqCod.Size = new System.Drawing.Size(44, 26);
+            this.PesqCod.TabIndex = 2;
+            this.PesqCod.TextChanged += new System.EventHandler(this.PesqCod_TextChanged);
+            // 
+            // PesqEnderecos
+            // 
+            this.PesqEnderecos.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.PesqEnderecos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PesqEnderecos.ForeColor = System.Drawing.Color.CadetBlue;
+            this.PesqEnderecos.Location = new System.Drawing.Point(665, 40);
+            this.PesqEnderecos.Name = "PesqEnderecos";
+            this.PesqEnderecos.Size = new System.Drawing.Size(159, 26);
+            this.PesqEnderecos.TabIndex = 2;
+            this.PesqEnderecos.TextChanged += new System.EventHandler(this.PesqCod_TextChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.SteelBlue;
+            this.label2.Location = new System.Drawing.Point(661, 18);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(145, 22);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Endereco Gerais";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.SteelBlue;
+            this.label3.Location = new System.Drawing.Point(228, 18);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(70, 22);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Genero";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.SteelBlue;
+            this.label5.Location = new System.Drawing.Point(489, 18);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(101, 22);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Estado civil";
+            // 
+            // PesqNasc
+            // 
+            this.PesqNasc.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.PesqNasc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PesqNasc.ForeColor = System.Drawing.Color.CadetBlue;
+            this.PesqNasc.Location = new System.Drawing.Point(830, 40);
+            this.PesqNasc.Name = "PesqNasc";
+            this.PesqNasc.Size = new System.Drawing.Size(159, 26);
+            this.PesqNasc.TabIndex = 2;
+            this.PesqNasc.TextChanged += new System.EventHandler(this.PesqCod_TextChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.SteelBlue;
+            this.label6.Location = new System.Drawing.Point(826, 18);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(94, 22);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Data Nasc";
+            // 
+            // PesqAtivo
+            // 
+            this.PesqAtivo.AutoSize = true;
+            this.PesqAtivo.ForeColor = System.Drawing.Color.Green;
+            this.PesqAtivo.Location = new System.Drawing.Point(1038, 41);
+            this.PesqAtivo.Name = "PesqAtivo";
+            this.PesqAtivo.Size = new System.Drawing.Size(58, 20);
+            this.PesqAtivo.TabIndex = 8;
+            this.PesqAtivo.Text = "Ativo";
+            this.PesqAtivo.UseVisualStyleBackColor = true;
+            this.PesqAtivo.CheckedChanged += new System.EventHandler(this.PesqAtivo_CheckedChanged);
+            // 
+            // PesqTodos
+            // 
+            this.PesqTodos.AutoSize = true;
+            this.PesqTodos.Checked = true;
+            this.PesqTodos.Location = new System.Drawing.Point(1038, 15);
+            this.PesqTodos.Name = "PesqTodos";
+            this.PesqTodos.Size = new System.Drawing.Size(68, 20);
+            this.PesqTodos.TabIndex = 9;
+            this.PesqTodos.TabStop = true;
+            this.PesqTodos.Text = "Todos";
+            this.PesqTodos.UseVisualStyleBackColor = true;
+            this.PesqTodos.CheckedChanged += new System.EventHandler(this.PesqTodos_CheckedChanged);
+            // 
+            // PesqCancelado
+            // 
+            this.PesqCancelado.AutoSize = true;
+            this.PesqCancelado.ForeColor = System.Drawing.Color.Red;
+            this.PesqCancelado.Location = new System.Drawing.Point(1038, 67);
+            this.PesqCancelado.Name = "PesqCancelado";
+            this.PesqCancelado.Size = new System.Drawing.Size(94, 20);
+            this.PesqCancelado.TabIndex = 10;
+            this.PesqCancelado.Text = "Cancelado";
+            this.PesqCancelado.UseVisualStyleBackColor = true;
+            this.PesqCancelado.CheckedChanged += new System.EventHandler(this.PesqCancelado_CheckedChanged);
             // 
             // id
             // 
@@ -195,7 +425,7 @@
             this.id.MinimumWidth = 6;
             this.id.Name = "id";
             this.id.ReadOnly = true;
-            this.id.Width = 40;
+            this.id.Width = 20;
             // 
             // foto
             // 
@@ -272,9 +502,9 @@
             // nasc
             // 
             this.nasc.DataPropertyName = "nasc";
-            dataGridViewCellStyle9.Format = "d";
-            dataGridViewCellStyle9.NullValue = null;
-            this.nasc.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle6.Format = "d";
+            dataGridViewCellStyle6.NullValue = null;
+            this.nasc.DefaultCellStyle = dataGridViewCellStyle6;
             this.nasc.HeaderText = "Data nascimento";
             this.nasc.MinimumWidth = 6;
             this.nasc.Name = "nasc";
@@ -344,141 +574,69 @@
             this.situacao.ReadOnly = true;
             this.situacao.Width = 125;
             // 
-            // groupBox2
+            // lblTotalCancelados
             // 
-            this.groupBox2.Controls.Add(this.PesqEstCivil);
-            this.groupBox2.Controls.Add(this.PesqGenero);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.btPesquisar);
-            this.groupBox2.Controls.Add(this.PesqNome);
-            this.groupBox2.Controls.Add(this.PesqCod);
-            this.groupBox2.ForeColor = System.Drawing.Color.Black;
-            this.groupBox2.Location = new System.Drawing.Point(354, 12);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(896, 96);
-            this.groupBox2.TabIndex = 0;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Opçoes de Pesquisa";
-            this.groupBox2.TextChanged += new System.EventHandler(this.groupBox2_TextChanged);
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            this.lblTotalCancelados.AutoSize = true;
+            this.lblTotalCancelados.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalCancelados.ForeColor = System.Drawing.Color.SteelBlue;
+            this.lblTotalCancelados.Location = new System.Drawing.Point(728, 642);
+            this.lblTotalCancelados.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTotalCancelados.Name = "lblTotalCancelados";
+            this.lblTotalCancelados.Size = new System.Drawing.Size(70, 22);
+            this.lblTotalCancelados.TabIndex = 1;
+            this.lblTotalCancelados.Text = "Genero";
             // 
-            // label1
+            // lbltotal
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.SteelBlue;
-            this.label1.Location = new System.Drawing.Point(63, 18);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(150, 22);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Nome CPF/CNPJ";
+            this.lbltotal.AutoSize = true;
+            this.lbltotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltotal.ForeColor = System.Drawing.Color.SteelBlue;
+            this.lbltotal.Location = new System.Drawing.Point(4, 642);
+            this.lbltotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbltotal.Name = "lbltotal";
+            this.lbltotal.Size = new System.Drawing.Size(70, 22);
+            this.lbltotal.TabIndex = 1;
+            this.lbltotal.Text = "Genero";
             // 
-            // label4
+            // lbltotalAtivos
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.SteelBlue;
-            this.label4.Location = new System.Drawing.Point(13, 18);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(24, 22);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Id";
-            // 
-            // btPesquisar
-            // 
-            this.btPesquisar.BackColor = System.Drawing.Color.Transparent;
-            this.btPesquisar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btPesquisar.FlatAppearance.BorderSize = 0;
-            this.btPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btPesquisar.Image = ((System.Drawing.Image)(resources.GetObject("btPesquisar.Image")));
-            this.btPesquisar.Location = new System.Drawing.Point(842, 30);
-            this.btPesquisar.Name = "btPesquisar";
-            this.btPesquisar.Size = new System.Drawing.Size(48, 48);
-            this.btPesquisar.TabIndex = 1;
-            this.btPesquisar.UseVisualStyleBackColor = false;
-            // 
-            // PesqNome
-            // 
-            this.PesqNome.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.PesqNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PesqNome.ForeColor = System.Drawing.Color.CadetBlue;
-            this.PesqNome.Location = new System.Drawing.Point(67, 43);
-            this.PesqNome.Name = "PesqNome";
-            this.PesqNome.Size = new System.Drawing.Size(159, 26);
-            this.PesqNome.TabIndex = 2;
-            this.PesqNome.TextChanged += new System.EventHandler(this.PesqCod_TextChanged);
-            // 
-            // PesqCod
-            // 
-            this.PesqCod.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.PesqCod.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PesqCod.ForeColor = System.Drawing.Color.CadetBlue;
-            this.PesqCod.Location = new System.Drawing.Point(17, 43);
-            this.PesqCod.Name = "PesqCod";
-            this.PesqCod.Size = new System.Drawing.Size(44, 26);
-            this.PesqCod.TabIndex = 2;
-            this.PesqCod.TextChanged += new System.EventHandler(this.PesqCod_TextChanged);
-            // 
-            // PesqGenero
-            // 
-            this.PesqGenero.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.PesqGenero.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.PesqGenero.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.PesqGenero.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PesqGenero.ForeColor = System.Drawing.Color.CadetBlue;
-            this.PesqGenero.FormattingEnabled = true;
-            this.PesqGenero.Items.AddRange(new object[] {
-            "Masculino",
-            "Feminino",
-            "Outros"});
-            this.PesqGenero.Location = new System.Drawing.Point(232, 41);
-            this.PesqGenero.Name = "PesqGenero";
-            this.PesqGenero.Size = new System.Drawing.Size(255, 28);
-            this.PesqGenero.TabIndex = 6;
-            this.PesqGenero.TextChanged += new System.EventHandler(this.PesqCod_TextChanged);
-            // 
-            // PesqEstCivil
-            // 
-            this.PesqEstCivil.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.PesqEstCivil.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.PesqEstCivil.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.PesqEstCivil.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PesqEstCivil.ForeColor = System.Drawing.Color.CadetBlue;
-            this.PesqEstCivil.FormattingEnabled = true;
-            this.PesqEstCivil.Items.AddRange(new object[] {
-            "Casado(a)",
-            "Solteiro(a)",
-            "Viuvo(a)",
-            "Divorciado(a)",
-            "Separado(a)"});
-            this.PesqEstCivil.Location = new System.Drawing.Point(493, 40);
-            this.PesqEstCivil.Name = "PesqEstCivil";
-            this.PesqEstCivil.Size = new System.Drawing.Size(255, 28);
-            this.PesqEstCivil.TabIndex = 7;
-            this.PesqEstCivil.TextChanged += new System.EventHandler(this.PesqCod_TextChanged);
+            this.lbltotalAtivos.AutoSize = true;
+            this.lbltotalAtivos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltotalAtivos.ForeColor = System.Drawing.Color.SteelBlue;
+            this.lbltotalAtivos.Location = new System.Drawing.Point(324, 642);
+            this.lbltotalAtivos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbltotalAtivos.Name = "lbltotalAtivos";
+            this.lbltotalAtivos.Size = new System.Drawing.Size(70, 22);
+            this.lbltotalAtivos.TabIndex = 1;
+            this.lbltotalAtivos.Text = "Genero";
             // 
             // FrmMenuClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FloralWhite;
-            this.ClientSize = new System.Drawing.Size(1262, 673);
+            this.ClientSize = new System.Drawing.Size(1456, 673);
             this.Controls.Add(this.dgLista);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.lbltotalAtivos);
+            this.Controls.Add(this.lbltotal);
+            this.Controls.Add(this.lblTotalCancelados);
             this.ForeColor = System.Drawing.Color.SteelBlue;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FrmMenuClientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Clientes";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmMenuClientes_FormClosed);
             this.Load += new System.EventHandler(this.FrmMenuClientes_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgLista)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -491,6 +649,22 @@
         private System.Windows.Forms.Button btEditar;
         private System.Windows.Forms.DataGridView dgLista;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox PesqCod;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox PesqNome;
+        private System.Windows.Forms.ComboBox PesqEstCivil;
+        private System.Windows.Forms.ComboBox PesqGenero;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox PesqEnderecos;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox PesqNasc;
+        private System.Windows.Forms.RadioButton PesqCancelado;
+        private System.Windows.Forms.RadioButton PesqTodos;
+        private System.Windows.Forms.RadioButton PesqAtivo;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewImageColumn foto;
         private System.Windows.Forms.DataGridViewTextBoxColumn nome;
@@ -508,13 +682,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn email;
         private System.Windows.Forms.DataGridViewTextBoxColumn obs;
         private System.Windows.Forms.DataGridViewTextBoxColumn situacao;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button btPesquisar;
-        private System.Windows.Forms.TextBox PesqCod;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox PesqNome;
-        private System.Windows.Forms.ComboBox PesqEstCivil;
-        private System.Windows.Forms.ComboBox PesqGenero;
+        private System.Windows.Forms.Label lblTotalCancelados;
+        private System.Windows.Forms.Label lbltotal;
+        private System.Windows.Forms.Label lbltotalAtivos;
     }
 }

@@ -87,6 +87,7 @@ namespace Cadastro
 
 
             ReorganizarDataGridView();
+            Rodape();
 
         }
 
@@ -99,18 +100,18 @@ namespace Cadastro
         {
             string c = "";
 
-            if (PesqCod.Text != string.Empty) 
-            
+            if (PesqCod.Text != string.Empty)
+
             {
                 c += "AND id = " + PesqCod.Text;
 
 
-                
+
             }
             if (PesqNome.Text != string.Empty)
             {
 
-                c += $" AND (nome LIKE '%{PesqNome.Text}%'  OR documento LIKE '%{PesqNome.Text}%')"  ;
+                c += $" AND (nome LIKE '%{PesqNome.Text}%'  OR documento LIKE '%{PesqNome.Text}%')";
             }
             //
             if (PesqGenero.Text != string.Empty)
@@ -126,6 +127,37 @@ namespace Cadastro
 
 
             }
+
+            if (PesqEnderecos.Text != string.Empty)
+            {
+                String e = PesqEnderecos.Text;
+                c += $" AND (cep LIKE '%{e}%' OR endereco LIKE '%{e}%' OR numero LIKE '%{e}%' OR bairro LIKE '%{e}%' OR cidade LIKE '%{e}%' OR estado LIKE '%{e}%')";
+            }
+
+
+            try
+            {
+                DateTime data = Convert.ToDateTime(PesqNasc.Text);
+                c += $" AND nasc = '{data:yyyy-MM-dd}'";
+            }
+            catch (Exception)
+            {
+
+
+            }
+            if (PesqAtivo.Checked == true)
+            {
+                c += " AND situacao = 'Ativo' ";
+            }
+            else if (PesqCancelado.Checked == true)
+            {
+
+                
+                    c += " AND situacao = 'Cancelado' ";
+                
+            } 
+
+
             //
             return c;
 
@@ -139,6 +171,59 @@ namespace Cadastro
         private void groupBox2_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void PesqTodos_CheckedChanged(object sender, EventArgs e)
+        {
+            if (PesqTodos.Checked == true)
+
+            {
+
+                BuscarClientes();
+            }
+        }
+
+        private void PesqAtivo_CheckedChanged(object sender, EventArgs e)
+        {
+
+            if (PesqAtivo.Checked == true)
+
+            {
+
+                BuscarClientes();
+            }
+        }
+
+        private void PesqCancelado_CheckedChanged(object sender, EventArgs e)
+        {
+
+            if (PesqCancelado.Checked == true)
+
+            {
+
+                BuscarClientes();
+            }
+        }
+        private void Rodape()
+        {
+            lbltotal.Text = "Total Localizados ;" + dgLista.RowCount;
+
+
+            int contador = 0;
+
+            foreach (DataGridViewRow lin in dgLista.Rows)
+            {
+
+                if (lin.Cells["situacao"].Value.ToString() ==  "Cancelado" )
+                    contador++;
+            }
+            lblTotalCancelados.Text = "Total Cancelados ;" + contador.ToString();
+            lbltotalAtivos.Text = "Total Ativos " + (dgLista.RowCount - contador).ToString();
+        }
+
+        private void FrmMenuClientes_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            dgLista.DataSource = Funcoes.BuscaSql("SELECT * FROM clientes WHERE 1 ");
         }
     }
     }
