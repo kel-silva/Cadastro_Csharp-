@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -88,6 +89,14 @@ namespace Cadastro
 
             ReorganizarDataGridView();
             Rodape();
+
+            if (dgLista.RowCount == 0)
+
+                lblAviso.Visible = true;
+            else
+                lblAviso.Visible = false;
+
+
 
         }
 
@@ -224,6 +233,22 @@ namespace Cadastro
         private void FrmMenuClientes_FormClosed(object sender, FormClosedEventArgs e)
         {
             dgLista.DataSource = Funcoes.BuscaSql("SELECT * FROM clientes WHERE 1 ");
+        }
+
+        private void dgLista_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (e.RowIndex == -1)
+                return;
+            dgLista.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.SkyBlue;
+        }
+
+        private void dgLista_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == -1)
+                return;
+            dgLista.Rows[e.RowIndex].DefaultCellStyle.BackColor =
+                (e.RowIndex %  2 == 0 ? Color.White: Color.AliceBlue);
         }
     }
     }
