@@ -35,8 +35,9 @@ namespace Cadastro
         {
             BuscarClientes();
 
-           
-            }
+
+            //this.reportFicha.RefreshReport();
+        }
 
         private void dgLista_Sorted(object sender, EventArgs e)
         {
@@ -238,17 +239,18 @@ namespace Cadastro
         private void dgLista_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
 
-            if (e.RowIndex == -1)
-                return;
-            dgLista.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.SkyBlue;
+           
+         
         }
 
         private void dgLista_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex == -1)
-                return;
-            dgLista.Rows[e.RowIndex].DefaultCellStyle.BackColor =
-                (e.RowIndex %  2 == 0 ? Color.White: Color.AliceBlue);
+   
+        }
+
+        private void btRelatorio_Click(object sender, EventArgs e)
+        {
+            Funcoes.ImprimirPDF(reportFicha, "Ficha Cadastral");
         }
     }
     }

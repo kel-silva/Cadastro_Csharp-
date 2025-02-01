@@ -28,11 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenuClientes));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btFicha = new System.Windows.Forms.Button();
+            this.btRelatorio = new System.Windows.Forms.Button();
+            this.btEditar = new System.Windows.Forms.Button();
+            this.btAdd = new System.Windows.Forms.Button();
             this.dgLista = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.foto = new System.Windows.Forms.DataGridViewImageColumn();
@@ -72,10 +77,7 @@
             this.lbltotal = new System.Windows.Forms.Label();
             this.lbltotalAtivos = new System.Windows.Forms.Label();
             this.lblAviso = new System.Windows.Forms.Label();
-            this.btFicha = new System.Windows.Forms.Button();
-            this.btRelatorio = new System.Windows.Forms.Button();
-            this.btEditar = new System.Windows.Forms.Button();
-            this.btAdd = new System.Windows.Forms.Button();
+            this.reportFicha = new Microsoft.Reporting.WinForms.ReportViewer();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgLista)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -95,23 +97,81 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Acoes";
             // 
+            // btFicha
+            // 
+            this.btFicha.BackColor = System.Drawing.Color.Transparent;
+            this.btFicha.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btFicha.Enabled = false;
+            this.btFicha.FlatAppearance.BorderSize = 0;
+            this.btFicha.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btFicha.Image = ((System.Drawing.Image)(resources.GetObject("btFicha.Image")));
+            this.btFicha.Location = new System.Drawing.Point(245, 30);
+            this.btFicha.Name = "btFicha";
+            this.btFicha.Size = new System.Drawing.Size(48, 48);
+            this.btFicha.TabIndex = 1;
+            this.btFicha.UseVisualStyleBackColor = false;
+            // 
+            // btRelatorio
+            // 
+            this.btRelatorio.BackColor = System.Drawing.Color.Transparent;
+            this.btRelatorio.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btRelatorio.FlatAppearance.BorderSize = 0;
+            this.btRelatorio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btRelatorio.Image = ((System.Drawing.Image)(resources.GetObject("btRelatorio.Image")));
+            this.btRelatorio.Location = new System.Drawing.Point(169, 30);
+            this.btRelatorio.Name = "btRelatorio";
+            this.btRelatorio.Size = new System.Drawing.Size(48, 48);
+            this.btRelatorio.TabIndex = 1;
+            this.btRelatorio.UseVisualStyleBackColor = false;
+            this.btRelatorio.Click += new System.EventHandler(this.btRelatorio_Click);
+            // 
+            // btEditar
+            // 
+            this.btEditar.BackColor = System.Drawing.Color.Transparent;
+            this.btEditar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btEditar.Enabled = false;
+            this.btEditar.FlatAppearance.BorderSize = 0;
+            this.btEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btEditar.Image = ((System.Drawing.Image)(resources.GetObject("btEditar.Image")));
+            this.btEditar.Location = new System.Drawing.Point(93, 30);
+            this.btEditar.Name = "btEditar";
+            this.btEditar.Size = new System.Drawing.Size(48, 48);
+            this.btEditar.TabIndex = 1;
+            this.btEditar.UseVisualStyleBackColor = false;
+            this.btEditar.Click += new System.EventHandler(this.btEditar_Click);
+            // 
+            // btAdd
+            // 
+            this.btAdd.BackColor = System.Drawing.Color.Transparent;
+            this.btAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btAdd.FlatAppearance.BorderSize = 0;
+            this.btAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btAdd.Image = ((System.Drawing.Image)(resources.GetObject("btAdd.Image")));
+            this.btAdd.Location = new System.Drawing.Point(6, 30);
+            this.btAdd.Name = "btAdd";
+            this.btAdd.Size = new System.Drawing.Size(59, 48);
+            this.btAdd.TabIndex = 1;
+            this.btAdd.UseVisualStyleBackColor = false;
+            this.btAdd.Click += new System.EventHandler(this.btAdd_Click);
+            // 
             // dgLista
             // 
             this.dgLista.AllowUserToAddRows = false;
             this.dgLista.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.AliceBlue;
-            this.dgLista.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.AliceBlue;
+            this.dgLista.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgLista.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgLista.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgLista.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgLista.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgLista.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgLista.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgLista.ColumnHeadersHeight = 30;
             this.dgLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgLista.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -132,6 +192,14 @@
             this.email,
             this.obs,
             this.situacao});
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgLista.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgLista.EnableHeadersVisualStyles = false;
             this.dgLista.Location = new System.Drawing.Point(8, 114);
             this.dgLista.Name = "dgLista";
@@ -150,6 +218,7 @@
             // id
             // 
             this.id.DataPropertyName = "id";
+            this.id.Frozen = true;
             this.id.HeaderText = "N";
             this.id.MinimumWidth = 6;
             this.id.Name = "id";
@@ -158,6 +227,7 @@
             // 
             // foto
             // 
+            this.foto.Frozen = true;
             this.foto.HeaderText = "Foto";
             this.foto.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.foto.MinimumWidth = 6;
@@ -168,6 +238,7 @@
             // nome
             // 
             this.nome.DataPropertyName = "nome";
+            this.nome.Frozen = true;
             this.nome.HeaderText = "Nome do Cliente";
             this.nome.MinimumWidth = 6;
             this.nome.Name = "nome";
@@ -231,9 +302,9 @@
             // nasc
             // 
             this.nasc.DataPropertyName = "nasc";
-            dataGridViewCellStyle9.Format = "d";
-            dataGridViewCellStyle9.NullValue = null;
-            this.nasc.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Format = "d";
+            dataGridViewCellStyle3.NullValue = null;
+            this.nasc.DefaultCellStyle = dataGridViewCellStyle3;
             this.nasc.HeaderText = "Data nascimento";
             this.nasc.MinimumWidth = 6;
             this.nasc.Name = "nasc";
@@ -563,69 +634,23 @@
             this.lblAviso.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAviso.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.lblAviso.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblAviso.Location = new System.Drawing.Point(-4, 144);
+            this.lblAviso.Location = new System.Drawing.Point(99, 160);
             this.lblAviso.Name = "lblAviso";
-            this.lblAviso.Size = new System.Drawing.Size(1409, 400);
+            this.lblAviso.Size = new System.Drawing.Size(1351, 400);
             this.lblAviso.TabIndex = 2;
             this.lblAviso.Text = "Nada Econtrado...";
             this.lblAviso.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblAviso.Visible = false;
             // 
-            // btFicha
+            // reportFicha
             // 
-            this.btFicha.BackColor = System.Drawing.Color.Transparent;
-            this.btFicha.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btFicha.Enabled = false;
-            this.btFicha.FlatAppearance.BorderSize = 0;
-            this.btFicha.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btFicha.Image = ((System.Drawing.Image)(resources.GetObject("btFicha.Image")));
-            this.btFicha.Location = new System.Drawing.Point(245, 30);
-            this.btFicha.Name = "btFicha";
-            this.btFicha.Size = new System.Drawing.Size(48, 48);
-            this.btFicha.TabIndex = 1;
-            this.btFicha.UseVisualStyleBackColor = false;
-            // 
-            // btRelatorio
-            // 
-            this.btRelatorio.BackColor = System.Drawing.Color.Transparent;
-            this.btRelatorio.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btRelatorio.FlatAppearance.BorderSize = 0;
-            this.btRelatorio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btRelatorio.Image = ((System.Drawing.Image)(resources.GetObject("btRelatorio.Image")));
-            this.btRelatorio.Location = new System.Drawing.Point(169, 30);
-            this.btRelatorio.Name = "btRelatorio";
-            this.btRelatorio.Size = new System.Drawing.Size(48, 48);
-            this.btRelatorio.TabIndex = 1;
-            this.btRelatorio.UseVisualStyleBackColor = false;
-            // 
-            // btEditar
-            // 
-            this.btEditar.BackColor = System.Drawing.Color.Transparent;
-            this.btEditar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btEditar.Enabled = false;
-            this.btEditar.FlatAppearance.BorderSize = 0;
-            this.btEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btEditar.Image = ((System.Drawing.Image)(resources.GetObject("btEditar.Image")));
-            this.btEditar.Location = new System.Drawing.Point(93, 30);
-            this.btEditar.Name = "btEditar";
-            this.btEditar.Size = new System.Drawing.Size(48, 48);
-            this.btEditar.TabIndex = 1;
-            this.btEditar.UseVisualStyleBackColor = false;
-            this.btEditar.Click += new System.EventHandler(this.btEditar_Click);
-            // 
-            // btAdd
-            // 
-            this.btAdd.BackColor = System.Drawing.Color.Transparent;
-            this.btAdd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btAdd.FlatAppearance.BorderSize = 0;
-            this.btAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btAdd.Image = ((System.Drawing.Image)(resources.GetObject("btAdd.Image")));
-            this.btAdd.Location = new System.Drawing.Point(6, 30);
-            this.btAdd.Name = "btAdd";
-            this.btAdd.Size = new System.Drawing.Size(59, 48);
-            this.btAdd.TabIndex = 1;
-            this.btAdd.UseVisualStyleBackColor = false;
-            this.btAdd.Click += new System.EventHandler(this.btAdd_Click);
+            this.reportFicha.LocalReport.ReportEmbeddedResource = "Cadastro.fichaCadastral.rdlc";
+            this.reportFicha.Location = new System.Drawing.Point(8, 146);
+            this.reportFicha.Name = "reportFicha";
+            this.reportFicha.ServerReport.BearerToken = null;
+            this.reportFicha.Size = new System.Drawing.Size(218, 128);
+            this.reportFicha.TabIndex = 3;
+            this.reportFicha.Visible = false;
             // 
             // FrmMenuClientes
             // 
@@ -634,6 +659,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FloralWhite;
             this.ClientSize = new System.Drawing.Size(1456, 673);
+            this.Controls.Add(this.reportFicha);
             this.Controls.Add(this.lblAviso);
             this.Controls.Add(this.dgLista);
             this.Controls.Add(this.groupBox2);
@@ -683,6 +709,10 @@
         private System.Windows.Forms.RadioButton PesqCancelado;
         private System.Windows.Forms.RadioButton PesqTodos;
         private System.Windows.Forms.RadioButton PesqAtivo;
+        private System.Windows.Forms.Label lblTotalCancelados;
+        private System.Windows.Forms.Label lbltotal;
+        private System.Windows.Forms.Label lbltotalAtivos;
+        private System.Windows.Forms.Label lblAviso;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewImageColumn foto;
         private System.Windows.Forms.DataGridViewTextBoxColumn nome;
@@ -700,9 +730,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn email;
         private System.Windows.Forms.DataGridViewTextBoxColumn obs;
         private System.Windows.Forms.DataGridViewTextBoxColumn situacao;
-        private System.Windows.Forms.Label lblTotalCancelados;
-        private System.Windows.Forms.Label lbltotal;
-        private System.Windows.Forms.Label lbltotalAtivos;
-        private System.Windows.Forms.Label lblAviso;
+        private Microsoft.Reporting.WinForms.ReportViewer reportFicha;
     }
 }
